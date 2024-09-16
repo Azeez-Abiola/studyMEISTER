@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*@layer base {
+  :root {
+    --border-color: #e5e7eb; /* Default border color, you can adjust this 
+  }
+}
+
+@layer utilities {
+  .border-border {
+    border-color: var(--border-color);
+  }
+}
+
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}*/
+
+@keyframes riseIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rising {
+  animation: riseIn 0.8s ease-out;
+}

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes, useLocation, useNavigate } from
 import Header from './components/Header';
 import Hero from './components/Hero';
 import FeatureStats from './components/FeatureStats';
-import Features from './components/features';
+import Features from './components/Features';
 import Testimonials from './components/testimonials';
 import Subscribe from './components/subscribe';
 import Footer from './components/Footer';

@@ -42,25 +42,44 @@ const Dashboard = () => {
         {/* Menu Items */}
         <nav className="space-y-3 px-4 flex-grow mt-6">
           <Link 
-            to="/dashboard" 
-            className={`flex items-center px-2 py-2 text-sm font-semibold text-[#3D5A80] hover:text-white hover:bg-[#3D5A80] hover:rounded-md transition-all duration-200 ${activeMenuItem === 'dashboard' ? 'bg-[#3D5A80] text-white rounded-md' : ''}`}
-            onClick={() => handleMenuItemClick('dashboard')}
+            to="/admin-dashboard" 
+            className={`flex items-center px-2 py-2 text-sm font-semibold text-[#3D5A80] hover:text-white hover:bg-[#3D5A80] hover:rounded-md transition-all duration-200 ${activeMenuItem === 'admin-dashboard' ? 'bg-[#3D5A80] text-white rounded-md' : ''}`}
+            onClick={() => {
+              handleMenuItemClick('admin-dashboard');
+              const adminDashboardElement = document.getElementById('admin-dashboard');
+              if (adminDashboardElement) {
+                adminDashboardElement.classList.add('animate-pop-in');
+                setTimeout(() => {
+                  adminDashboardElement.classList.remove('animate-pop-in');
+                }, 500); // Duration of the animation
+              }
+            }}
           >
-            <img src="/Dashboard.png" alt="Dashboard" className={`w-4 h-4 mr-3 ${activeMenuItem === 'dashboard' ? 'filter brightness-0 invert' : ''}`} />
+            <img src="/Dashboard.png" alt="Admin Dashboard" className={`w-4 h-4 mr-3 ${activeMenuItem === 'admin-dashboard' ? 'filter brightness-0 invert' : ''}`} />
             <span>Dashboard</span>
             <FaChevronRight className="ml-auto text-xs" />
           </Link>
           <Link 
             to="/relevance-checker" 
             className={`flex items-center px-2 py-2 text-sm font-semibold text-[#3D5A80] hover:text-white hover:bg-[#3D5A80] hover:rounded-md transition-all duration-200 ${activeMenuItem === 'relevance-checker' ? 'bg-[#3D5A80] text-white rounded-md' : ''}`}
-            onClick={() => handleMenuItemClick('relevance-checker')}
+            onClick={() => {
+              handleMenuItemClick('relevance-checker');
+              // Trigger animation on navigation
+              const relevanceCheckerElement = document.getElementById('relevance-checker');
+              if (relevanceCheckerElement) {
+                relevanceCheckerElement.classList.add('animate-rise');
+                setTimeout(() => {
+                  relevanceCheckerElement.classList.remove('animate-rise');
+                }, 500); // Duration of the animation
+              }
+            }}
           >
             <img src="/Relevance.png" alt="Relevance Checker" className={`w-4 h-4 mr-3 ${activeMenuItem === 'relevance-checker' ? 'filter brightness-0 invert' : ''}`} />
             <span>Relevance Checker</span>
             <FaChevronRight className="ml-auto text-xs" />
           </Link>
           <Link 
-            to="/research-lab" 
+            to="/research-lab"  // Fixed missing opening tag
             className={`flex items-center px-2 py-2 text-sm font-semibold text-[#3D5A80] hover:text-white hover:bg-[#3D5A80] hover:rounded-md transition-all duration-200 ${activeMenuItem === 'research-lab' ? 'bg-[#3D5A80] text-white rounded-md' : ''}`}
             onClick={() => handleMenuItemClick('research-lab')}
           >

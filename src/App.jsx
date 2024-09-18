@@ -14,6 +14,8 @@ import EmailVerification from './components/EmailVerification';
 import VerificationCode from './components/VerificationCode';
 import Pricing from './components/Pricing';
 import Checkout from './components/Checkout';
+import RelevanceChecker from './components/RelevanceChecker'; // Added RelevanceChecker
+import AdminDashboard from './components/AdminDashboard'; // Added AdminDashboard
 
 const Preloader = () => (
   <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-white z-50">
@@ -123,6 +125,8 @@ const AppContent = () => {
       <Route path="/verification" element={<VerificationCode />} />
       <Route path="/pricing" element={<Pricing />} />
       <Route path="/checkout" element={<Checkout />} />
+      <Route path="/relevance-checker" element={<RelevanceChecker />} /> {/* Added RelevanceChecker route */}
+      <Route path="/admin-dashboard" element={<AdminDashboard />} /> {/* Added AdminDashboard route */}
     </Routes>
   );
 };

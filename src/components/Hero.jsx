@@ -36,7 +36,7 @@ const Hero = () => {
         <button className="w-full sm:w-auto px-6 sm:px-8 py-3 mt-6 sm:mt-8 text-white bg-[#3D5A80] rounded-[3px] hover:bg-white hover:text-[#3D5A80] border-2 border-[#3D5A80] transition-colors duration-300 ease-in-out">Try it now!</button>
       </div>
       <div ref={imgRef} className="w-full md:w-1/2">
-        <img src="./public/heroimg.png" alt="StudyMEISTER" className="w-full h-auto" />
+        <img src="./heroimg.png" alt="StudyMEISTER" className="w-full h-auto" />
       </div>
     </section>
   );

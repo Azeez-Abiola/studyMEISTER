@@ -13,17 +13,17 @@ const Features = () => {
   }, []);
 
   const features = [
-    { text: "Powerful and easy protection features", img: "./public/check.png" },
-    { text: "Instant live barrier", img: "./public/check.png" },
-    { text: "Supercharged VPN", img: "./public/check.png" },
-    { text: "No specific time limits", img: "./public/check.png" }
+    { text: "Powerful and easy protection features", img: "./check.png" },
+    { text: "Instant live barrier", img: "./check.png" },
+    { text: "Supercharged VPN", img: "./check.png" },
+    { text: "No specific time limits", img: "./check.png" }
   ];
 
   return (
     <section className="rising p-4 sm:p-8 md:p-12 bg-white text-center">
       <div className="mt-4 sm:mt-8 flex flex-col md:flex-row justify-between items-center">
         <div className="w-full md:w-1/2 md:ml-[80px] mb-8 md:mb-0">
-          <img src="./public/featuresimg.png" alt="Features" className="w-full h-auto" />
+          <img src="./featuresimg.png" alt="Features" className="w-full h-auto" />
         </div>
         <div className="w-full md:w-1/2 space-y-4 text-left md:ml-[35px]">
           <div className="text-left">

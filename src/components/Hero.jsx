@@ -24,7 +24,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="p-4 sm:p-8 md:p-16 bg-white flex flex-col md:flex-row justify-between items-center">
+    <section className="p-4 sm:p-8 md:p-16 bg-white flex flex-col md:flex-row justify-between items-center mt-24">
       <div ref={textRef} className="text-left w-full md:w-1/2 mb-8 md:mb-0 md:mr-8">
         <h1 className="text-3xl sm:text-4xl text-gray-800">
           <span className="font-normal">Write articles quickly with Study</span>

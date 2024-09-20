@@ -53,31 +53,31 @@ const Header = () => {
           ${isNavOpen ? 'translate-x-0' : 'translate-x-full'}
           lg:relative lg:inset-auto lg:transform-none lg:transition-none lg:flex lg:items-center
         `}>
-          <div className="flex flex-col items-center justify-center h-full space-y-6 text-md 
-               lg:flex-row lg:space-y-0 lg:space-x-9 font-rubik">
-            <div className="lg:pr-20 flex flex-col lg:flex-row lg:space-x-6">
-              <a href="#pricing" className="relative group text-[#2B2B2B] hover:text-gray-900 md:pl-8">
+          <div className="flex flex-col items-center justify-center h-full space-y-4 text-md 
+               font-rubik">
+            <div className="flex flex-col items-center space-y-4">
+              <a href="#pricing" className="relative group text-[#2B2B2B] hover:text-gray-900">
                 Pricing
-                <span className="absolute bottom-0 left-8 right-0 h-0.5 bg-[#E16741] 
+                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#E16741] 
                                  transform scale-x-0 transition-transform duration-300 
                                  group-hover:scale-x-100 origin-left"></span>
               </a>
-              <a href="#testimonials" className="relative group text-[#2B2B2B] hover:text-gray-900 lg:pl-8">
+              <a href="#testimonials" className="relative group text-[#2B2B2B] hover:text-gray-900">
                 Testimonial
-                <span className="absolute bottom-0 left-8 right-0 h-0.5 bg-[#E16741] 
+                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#E16741] 
                                  transform scale-x-0 transition-transform duration-300 
                                  group-hover:scale-x-100 origin-left"></span>
               </a>
-              <a href="#help" className="relative group text-[#2B2B2B] hover:text-gray-900 lg:pl-8">
+              <a href="#help" className="relative group text-[#2B2B2B] hover:text-gray-900">
                 Help
-                <span className="absolute bottom-0 left-8 right-0 h-0.5 bg-[#E16741] 
+                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#E16741] 
                                  transform scale-x-0 transition-transform duration-300 
                                  group-hover:scale-x-100 origin-left"></span>
               </a>
             </div>
-            <Link to="/signin" className="relative group text-[#2B2B2B] hover:text-gray-900 pl-9">
+            <Link to="/signin" className="relative group text-[#2B2B2B] hover:text-gray-900">
               Sign in
-              <span className="absolute bottom-0 left-9 right-0 h-0.5 bg-[#E16741] 
+              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#E16741] 
                                transform scale-x-0 transition-transform duration-300 
                                group-hover:scale-x-100 origin-left"></span>
             </Link>

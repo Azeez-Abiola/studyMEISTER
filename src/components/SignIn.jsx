@@ -70,7 +70,7 @@ const SignIn = () => {
   return (
     <div className="flex min-h-screen">
       {isNavigating && <NavigationLoader />}
-      <div className="w-1/2 bg-white flex items-center justify-center">
+      <div className="w-full md:w-1/2 bg-white flex items-center justify-center">
         <div className="max-w-sm w-full space-y-6 p-8">
           <div className="text-center">
             <h3 className="text-lg font-normal text-black">Study<span className="font-bold">MEISTER</span></h3>
@@ -198,7 +198,7 @@ const SignIn = () => {
           </div>
         </div>
       </div>
-      <div className="w-1/2 bg-gradient-to-br from-[#101828] to-[#475467] bg-cover bg-center relative">
+      <div className="hidden md:block w-1/2 bg-gradient-to-br from-[#101828] to-[#475467] bg-cover bg-center relative">
         <img
           src="/sign-inimg.png"
           alt="Sign In"

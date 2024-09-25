@@ -146,7 +146,7 @@ const SignUp = () => {
           </div>
         </div>
       </div>
-      <div className="w-full md:w-1/2 bg-gradient-to-br from-[#101828] to-[#475467]">
+      <div className="hidden md:block w-full md:w-1/2 bg-gradient-to-br from-[#101828] to-[#475467]">
         <img
           className="object-cover w-full h-full"
           src="/sign-inimg.png"

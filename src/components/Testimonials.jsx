@@ -36,19 +36,18 @@ const Testimonials = () => {
   const [showFourth, setShowFourth] = useState(false);
 
   const nextSlide = () => {
-    if (currentSlide === testimonials.length - 1) {
+    if (currentSlide === testimonials.length - 2) {
       setShowFourth(true);
-    } else {
-      setCurrentSlide((prev) => (prev + 1) % testimonials.length);
-      setShowFourth(false);
     }
+    setCurrentSlide((prev) => (prev + 1) % (showFourth ? testimonials.length : testimonials.length - 1));
   };
 
   const prevSlide = () => {
-    if (showFourth) {
+    if (showFourth && currentSlide === testimonials.length - 1) {
       setShowFourth(false);
+      setCurrentSlide(currentSlide - 1);
     } else {
-      setCurrentSlide((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+      setCurrentSlide((prev) => (prev - 1 + testimonials.length) % (showFourth ? testimonials.length : testimonials.length - 1));
     }
   };
 
@@ -58,12 +57,12 @@ const Testimonials = () => {
       <p className="mt-4 text-gray-500 max-w-lg mx-auto">
         Lorem ipsum dolor sit amet consectetur. Dui tortor gravida nibh arcu id purus et loremque. Nulla sed semper augue.
       </p>
-      <div className="relative pb-24 overflow-hidden">
-        <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-          {testimonials.map((testimonial, index) => (
+      <div className="relative pb-24 overflow-hidden max-w-7xl mx-auto">
+        <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentSlide * (100 / 3)}%)` }}>
+          {testimonials.slice(0, 3).map((testimonial, index) => ( // Show only 3 testimonials by default
             <div 
               key={`${testimonial.name}-${index}`}
-              className="min-w-full bg-white p-6 rounded-lg shadow-md transition-all duration-500 ease-in-out hover:scale-105 hover:shadow-lg"
+              className="min-w-1/3 bg-white p-6 rounded-lg shadow-md transition-all duration-500 ease-in-out hover:scale-105 hover:shadow-lg mr-4" // Added padding right
             >
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center">
@@ -86,7 +85,7 @@ const Testimonials = () => {
             </div>
           ))}
         </div>
-        <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center space-y-4">
+        <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between">
           <div className="flex space-x-2">
             {[0, 1, 2, 3].map((index) => (
               <div

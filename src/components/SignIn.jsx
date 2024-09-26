@@ -146,7 +146,7 @@ const SignIn = () => {
             <div>
               <button
                 type="submit"
-                className="group relative w-full flex justify-center py-1 px-3 border border-transparent text-xs font-medium rounded-md text-white bg-[#3D5A80] hover:bg-white hover:text-[#3D5A80] hover:border-[#3D5A80] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#3D5A80] transition-colors duration-200"
+                className="group relative w-full flex justify-center py-3 px-3 border border-transparent text-xs font-medium rounded-md text-white bg-[#3D5A80] hover:bg-white hover:text-[#3D5A80] hover:border-[#3D5A80] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#3D5A80] transition-colors duration-200"
                 disabled={isLoading || isNavigating}
               >
                 {isLoading ? <Loader /> : 'Sign in'}

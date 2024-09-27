@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { FaLongArrowAltLeft } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const plans = [
   {
@@ -44,13 +45,35 @@ const plans = [
   },
 ]
 
+const Preloader = () => (
+  <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-white z-50">
+    <div className="w-16 h-16 rounded-full animate-spin" style={{
+      background: 'conic-gradient(from 0deg, #3D5A80, #98C1D9)',
+    }}></div>
+  </div>
+);
+
 export default function Component() {
   const [billingCycle, setBillingCycle] = useState('monthly')
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const handleButtonClick = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      navigate('/checkout');
+    }, 1000);
+  };
 
   return (
-    <div className="min-h-screen bg-white p-4">
+    <div className="min-h-screen bg-white p-4 font-inter">
+      {loading && <Preloader />}
       <div className="max-w-4xl mx-auto p-6 relative">
-        <button className="absolute top-0 left-0 flex items-center text-gray-600 mb-4">
+        <button 
+          className="absolute top-0 left-0 flex items-center text-gray-600 mb-4"
+          onClick={() => window.location.href = '/verification'}
+        >
           <FaLongArrowAltLeft className="w-4 h-4 mr-2" />
           Back
         </button>
@@ -105,7 +128,10 @@ export default function Component() {
                   </li>
                 ))}
               </ul>
-              <button className="w-full py-2 rounded-md bg-[#3D5A80] text-white hover:bg-white hover:text-[#3D5A80] transition-colors duration-300">
+              <button 
+                className="w-full py-2 rounded-md bg-[#3D5A80] text-white hover:bg-white hover:text-[#3D5A80] transition-colors duration-300"
+                onClick={handleButtonClick}
+              >
                 {plan.cta}
               </button>
             </div>

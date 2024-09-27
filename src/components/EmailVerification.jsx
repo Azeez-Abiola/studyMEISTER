@@ -23,8 +23,8 @@ const EmailVerification = () => {
     // Simulate API call or processing time
     setTimeout(() => {
       setLoading(false);
-      // Navigate to the Pricing page
-      navigate('/pricing');
+      // Navigate to the VerificationCode page
+      navigate('/verification');
     }, 1000); // 1 second delay for demonstration
   };
 
@@ -32,7 +32,7 @@ const EmailVerification = () => {
     <div className="min-h-screen bg-white flex flex-col items-center justify-center p-4 relative">
       {loading && <Preloader />}
       <div className="absolute top-10 left-10 mt-4 ml-4">
-        <Link to="/" className="flex items-center text-gray-600 hover:text-gray-800">
+        <Link to="/signup" className="flex items-center text-gray-600 hover:text-gray-800">
           <FaLongArrowAltLeft className="mr-2 text-xl" />
           <span className='font-bold' >Back</span>
         </Link>
@@ -61,7 +61,7 @@ const EmailVerification = () => {
               className="w-full bg-[#3D5A80] text-white py-2 rounded-md hover:bg-white hover:text-[#3D5A80] hover:border-2 hover:border-[#3D5A80] transition-all duration-200"
               disabled={loading}
             >
-              {loading ? 'Verifying...' : 'Verify Email'}
+              {loading ? 'Sending...' : 'Send Code'}
             </button>
           </form>
           

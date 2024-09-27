@@ -6,35 +6,56 @@ export default function Component() {
 
   return (
     <div className="min-h-screen bg-gray-100 p-4 md:p-8">
-      <div className="max-w-6xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+      <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
         <div className="p-4 md:p-6">
-          <button className="flex items-center text-gray-600 mb-6">
-            <ChevronLeft className="w-5 h-5 mr-1" />
-            Back
-          </button>
-          <h1 className="text-2xl font-bold mb-8">Checkout</h1>
+          <div className="flex items-center justify-between mb-6">
+            <button className="flex items-center text-gray-600">
+              <ChevronLeft className="w-5 h-5 mr-1" />
+              Back
+            </button>
+            <h1 className="text-2xl font-bold">Checkout</h1>
+            <div className="w-20"></div> {/* Spacer for centering */}
+          </div>
           <div className="flex flex-col md:flex-row gap-8">
-            <div className="flex-1">
+            <div className="flex-1 max-w-md">
               <h2 className="text-lg font-semibold mb-4">Add your payment information</h2>
-              <div className="flex gap-2 mb-4">
+              <h3 className='font-semibold mb-2'>Payment Method</h3>
+              <div className="flex gap-4 mb-4">
                 <button
-                  className={`flex-1 py-2 px-4 border rounded-md ${
-                    paymentMethod === 'card' ? 'bg-gray-100 border-gray-300' : 'border-gray-200'
+                  className={`flex-1 py-2 px-4 border rounded-md flex items-center justify-between ${
+                    paymentMethod === 'Visa' ? 'bg-gray-100 border-gray-300' : 'border-gray-200'
                   }`}
-                  onClick={() => setPaymentMethod('card')}
+                  onClick={() => setPaymentMethod('Visa')}
                 >
-                  <CreditCard className="w-6 h-6 mx-auto" />
+                  <div className="flex items-center">
+                  <span className="text-sm mr-4">Card</span>
+                    <img src="/Visa.png?height=24&width=40" alt="Visa" className="h-6 w-auto mr-2" />
+                   
+                  </div>
+                  <div className={`w-4 h-4 rounded-full ${paymentMethod === 'Visa' ? 'bg-blue-500' : 'border border-gray-400'}`}></div>
                 </button>
                 <button
-                  className={`flex-1 py-2 px-4 border rounded-md ${
+                  className={`flex-1 py-2 px-4 border rounded-md flex items-center justify-between ${
                     paymentMethod === 'paypal' ? 'bg-gray-100 border-gray-300' : 'border-gray-200'
                   }`}
                   onClick={() => setPaymentMethod('paypal')}
                 >
-                  <img src="/placeholder.svg?height=24&width=24" alt="PayPal" className="w-6 h-6 mx-auto" />
+                  <img src="/Paypal.png?height=24&width=80" alt="PayPal" className="h-6 w-auto" />
+                  <div className={`w-4 h-4 rounded-full ${paymentMethod === 'paypal' ? 'bg-blue-500' : 'border border-gray-400'}`}></div>
                 </button>
               </div>
               <form className="space-y-4">
+              <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                    Name on card
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                    placeholder="J."
+                  />
+                </div>
                 <div>
                   <label htmlFor="cardNumber" className="block text-sm font-medium text-gray-700 mb-1">
                     Card number
@@ -43,7 +64,7 @@ export default function Component() {
                     type="text"
                     id="cardNumber"
                     className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                    placeholder="1234 5678 9012 3456"
+                    placeholder="1234 5678"
                   />
                 </div>
                 <div className="flex gap-4">
@@ -71,25 +92,15 @@ export default function Component() {
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                    Name on card
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                    Email
                   </label>
                   <input
-                    type="text"
-                    id="name"
+                    type="email"
+                    id="email"
                     className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                    placeholder="John Doe"
+                    placeholder="your@email.com"
                   />
-                </div>
-                <div>
-                  <label htmlFor="country" className="block text-sm font-medium text-gray-700 mb-1">
-                    Country or region
-                  </label>
-                  <select id="country" className="w-full px-3 py-2 border border-gray-300 rounded-md">
-                    <option>United States</option>
-                    <option>Canada</option>
-                    <option>United Kingdom</option>
-                  </select>
                 </div>
                 <div>
                   <label htmlFor="zip" className="block text-sm font-medium text-gray-700 mb-1">
@@ -100,6 +111,40 @@ export default function Component() {
                     id="zip"
                     className="w-full px-3 py-2 border border-gray-300 rounded-md"
                     placeholder="12345"
+                  />
+                </div>
+                <h3 className="font-semibold mt-6 mb-2">Login details</h3>
+                <div>
+                  <label htmlFor="username" className="block text-sm font-medium text-gray-700 mb-1">
+                    Username
+                  </label>
+                  <input
+                    type="text"
+                    id="username"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                    placeholder="Choose a username"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    id="password"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                    placeholder="Enter password"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="reenterPassword" className="block text-sm font-medium text-gray-700 mb-1">
+                    Re-enter Password
+                  </label>
+                  <input
+                    type="password"
+                    id="reenterPassword"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                    placeholder="Re-enter password"
                   />
                 </div>
               </form>
@@ -125,11 +170,25 @@ export default function Component() {
                   <span>To pay now</span>
                   <span>$845.00 USD</span>
                 </div>
-                <button className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors">
-                  Confirm order
+                <button 
+                  className="w-full bg-[#3D5A80] text-white py-2 px-4 rounded-md hover:bg-white hover:text-[#3D5A80] border-2 border-[#3D5A80] transition-all duration-300"
+                  onClick={() => {
+                    // Show preloader
+                    document.querySelector('.preloader').classList.remove('hidden');
+                    // Navigate to signup page after a short delay
+                    setTimeout(() => {
+                      window.location.href = '/signin';
+                    }, 1000);
+                  }}
+                >
+                  Subscribe Now!
                 </button>
+                {/* Preloader */}
+                <div className="preloader fixed top-0 left-0 w-full h-full flex items-center justify-center bg-white z-50 hidden">
+                  <div className="w-16 h-16 border-4 border-[#3D5A80] border-t-transparent rounded-full animate-spin"></div>
+                </div>
                 <p className="text-xs text-gray-500 mt-4 text-center">
-                  By confirming your order you agree to our Terms and Conditions
+                  By continuing, you agree to Stripe's <u><a href="#">terms</a></u> and <u><a href="#">privacy policy</a></u>. You'll be charged $45.00 USD every month until you cancel your subscription
                 </p>
               </div>
             </div>

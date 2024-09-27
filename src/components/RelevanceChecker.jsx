@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, ChevronDown, Info } from 'lucide-react';
+import { ChevronDown, Info, Check, MoreVertical } from 'lucide-react';
 
 const InstructionSection = ({ title }) => (
   <div className="border border-gray-300 rounded-md p-4 mb-4">
@@ -15,13 +15,20 @@ const InstructionSection = ({ title }) => (
   </div>
 );
 
-const ResultItem = ({ status, text }) => (
-  <div className={`p-4 rounded-md mb-4 ${status === 'accepted' ? 'bg-green-100' : 'bg-red-100'}`}>
-    <div className="flex justify-between items-center mb-2">
-      <span className="font-semibold">{status === 'accepted' ? 'Accepted' : 'Rejected'}</span>
-      <Info className="w-5 h-5 text-gray-500" />
+const ResultItem = ({ status, text, checked, onCheck }) => (
+  <div className={`p-6 rounded-md mb-6 flex flex-col justify-between items-start ${status === 'accepted' ? 'bg-green-100 shadow-lg' : 'bg-red-100 shadow-md'} h-32`}>
+    <div className="flex items-center w-full justify-between">
+      <div className="flex items-center">
+        <input type="checkbox" checked={checked} onChange={onCheck} className="mr-2" />
+        <span className="font-semibold">Research Article Name</span>
+      </div>
+      <MoreVertical className="w-5 h-5 text-gray-500" />
     </div>
-    <p className="text-sm">{text}</p>
+    <div className="flex items-center w-full">
+      <p className="text-sm mr-2">{text}</p>
+      {checked && <Check className="w-5 h-5 text-green-500" />}
+    </div>
+    <p className="text-xs text-gray-600 mt-2">Lorem ipsum odor amet, consectetuer adipiscing elit. Nunc senectus quisque nisl sodales montes nunc. Quam sodales dictum suscipit et fermentum erat nisl conubia facilisis.</p>
   </div>
 );
 
@@ -29,9 +36,9 @@ export default function RelevanceChecker() {
   const [articleTitle, setArticleTitle] = useState('');
   const [articleContent, setArticleContent] = useState('');
   const [results, setResults] = useState([
-    { status: 'accepted', text: 'This is an accepted rewrite of the article.' },
-    { status: 'rejected', text: 'This is a rejected rewrite of the article.' },
-    { status: 'accepted', text: 'This is another accepted rewrite of the article.' },
+    { status: 'accepted', text: 'This is an accepted rewrite of the article.', checked: false, className: 'mb-4 shadow-md' },
+    { status: 'rejected', text: 'This is a rejected rewrite of the article.', checked: false, className: 'mb-4 shadow-md' },
+    { status: 'accepted', text: 'This is another accepted rewrite of the article.', checked: false, className: 'mb-4 shadow-md' },
   ]);
 
   const handleRewrite = () => {
@@ -39,45 +46,61 @@ export default function RelevanceChecker() {
     console.log('Rewriting article:', articleTitle, articleContent);
   };
 
+  const handleCheckAll = (e) => {
+    const checked = e.target.checked;
+    setResults(results.map(result => ({ ...result, checked })));
+  };
+
+  const handleCheck = (index) => {
+    setResults(results.map((result, i) => i === index ? { ...result, checked: !result.checked } : result));
+  };
+
   return (
-    <div className="min-h-screen bg-gray-100">
-      <header className="bg-white shadow-md p-4">
-        <h1 className="text-2xl font-bold text-gray-800">StudyMEISTER</h1>
+    <div className="min-h-screen bg-gray-100 ">
+      <header className="mt-2 p-2 flex justify-start">
+        <img src="/logo.png" alt="Logo" className="h-6" />
       </header>
       <div className="container mx-auto p-4">
         <div className="flex flex-col md:flex-row gap-4">
           <div className="flex-grow">
             <h2 className="text-xl font-semibold mb-4">Article Title</h2>
-            <input
-              type="text"
-              className="w-full p-2 border border-gray-300 rounded-md mb-4"
-              placeholder="Enter article title..."
-              value={articleTitle}
-              onChange={(e) => setArticleTitle(e.target.value)}
-            />
             <textarea
-              className="w-full h-64 p-2 border border-gray-300 rounded-md mb-4"
-              placeholder="Paste your article text here..."
+              className="w-full h-64 p-2 border border-gray-300 rounded-md mb-0"
+              placeholder="Start typing or paste your abstract here..."
               value={articleContent}
               onChange={(e) => setArticleContent(e.target.value)}
             ></textarea>
-            <button
-              className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"
-              onClick={handleRewrite}
-            >
-              Rewrite Article
-            </button>
+            <div className="flex justify-end">
+              <button
+                className="bg-[#3D5A80] text-white px-12 py-2 rounded-[3px] border border-[#3D5A80] hover:bg-white hover:text-[#3D5A80] transition-colors mt-0"
+                onClick={handleRewrite}
+              >
+                Check Relevance
+              </button>
+            </div>
 
-            <h2 className="text-xl font-semibold mt-8 mb-4">Results</h2>
+            <h2 className="text-xl font-bold mt-4 mb-4">Results</h2>
+            <div className="flex items-center mb-4">
+              <input type="checkbox" onChange={handleCheckAll} className="mr-2" />
+              <span>Select All</span>
+            </div>
             {results.map((result, index) => (
-              <ResultItem key={index} status={result.status} text={result.text} />
+              <ResultItem
+                key={index}
+                status={result.status}
+                text={result.text}
+                checked={result.checked}
+                onCheck={() => handleCheck(index)}
+              />
             ))}
-            <button
-              className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"
-              onClick={handleRewrite}
-            >
-              Rewrite Article
-            </button>
+            <div className="flex justify-end">
+              <button
+                className="bg-[#3D5A80] text-white px-12 py-2 rounded-[3px] border border-[#3D5A80] hover:bg-white hover:text-[#3D5A80] transition-colors mt-0"
+                onClick={handleRewrite}
+              >
+                Rewrite Article
+              </button>
+            </div>
           </div>
           <div className="md:w-80">
             <div className="bg-white p-4 rounded-md shadow-md">
@@ -86,10 +109,10 @@ export default function RelevanceChecker() {
                 <input
                   type="text"
                   className="flex-grow p-2 border border-gray-300 rounded-l-md"
-                  placeholder="Research key for rewriting"
+                  placeholder="research title, Doi, keyword"
                 />
-                <button className="bg-blue-600 text-white p-2 rounded-r-md hover:bg-blue-700 transition-colors">
-                  <Search className="w-5 h-5" />
+                <button className="bg-[#3D5A80] text-white p-2 rounded-r-md hover:bg-[#3D5A80] transition-colors">
+                  Search
                 </button>
               </div>
               <InstructionSection title="INSTRUCTION_TITLE" />

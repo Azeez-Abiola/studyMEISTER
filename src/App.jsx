@@ -16,6 +16,7 @@ import Pricing from './components/Pricing';
 import Checkout from './components/Checkout';
 import RelevanceChecker from './components/RelevanceChecker'; // Added RelevanceChecker
 import AdminDashboard from './components/AdminDashboard'; // Added AdminDashboard
+import Paraphraser from './components/Paraphraser'; // Added Paraphraser
 
 const Preloader = () => (
   <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-white z-50">
@@ -127,6 +128,7 @@ const AppContent = () => {
       <Route path="/checkout" element={<Checkout />} />
       <Route path="/relevance-checker" element={<RelevanceChecker />} /> {/* Added RelevanceChecker route */}
       <Route path="/admin-dashboard" element={<AdminDashboard />} /> {/* Added AdminDashboard route */}
+      <Route path="/paraphraser" element={<Paraphraser />} /> {/* Added Paraphraser route */}
     </Routes>
   );
 };

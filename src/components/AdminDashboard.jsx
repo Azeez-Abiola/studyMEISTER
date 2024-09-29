@@ -30,10 +30,10 @@ const kpiData = [
 ];
 
 const userData = [
-  { name: 'Samantha Nayak', img: '/placeholder.svg?height=40&width=40', revenue: '$ 2543.50', sessions: 230, projects: 40, tasks: 25 },
-  { name: 'Connie Smith', img: '/placeholder.svg?height=40&width=40', revenue: '$ 1657.40', sessions: 150, projects: 35, tasks: 18 },
-  { name: 'Dennis Gideon', img: '/placeholder.svg?height=40&width=40', revenue: '$ 1845.20', sessions: 190, projects: 38, tasks: 22 },
-  { name: 'Larissa Barton', img: '/placeholder.svg?height=40&width=40', revenue: '$ 2345.50', sessions: 220, projects: 42, tasks: 28 },
+  { name: 'Nicholas Patrick', img: '/Nicholas.png?height=40&width=40', revenue: '$ 2543.50', sessions: 230, projects: 40, tasks: 25 },
+  { name: 'Cordell Edwards', img: '/Cordell.png?height=40&width=40', revenue: '$ 1657.40', sessions: 150, projects: 35, tasks: 18 },
+  { name: 'Derrick Spencer', img: '/Derrick.png?height=40&width=40', revenue: '$ 1845.20', sessions: 190, projects: 38, tasks: 22 },
+  { name: 'Larissa Burton', img: '/Larissa.png?height=40&width=40', revenue: '$ 2345.50', sessions: 220, projects: 42, tasks: 28 },
 ];
 
 const chartData = {
@@ -98,42 +98,26 @@ export default function AdminDashboard() {
         ))}
       </div>
 
-      <div className="bg-white rounded-lg shadow mb-6 overflow-x-auto">
-        <table className="w-full">
-          <thead>
-            <tr className="bg-gray-50">
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Revenue</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Sessions</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Projects</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tasks</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
-            </tr>
-          </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
-            {userData.map((user, index) => (
-              <tr key={index}>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="flex items-center">
-                    <div className="flex-shrink-0 h-10 w-10">
-                      <img className="h-10 w-10 rounded-full" src={user.img} alt="" />
-                    </div>
-                    <div className="ml-4">
-                      <div className="text-sm font-medium text-gray-900">{user.name}</div>
-                    </div>
-                  </div>
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{user.revenue}</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{user.sessions}</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{user.projects}</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{user.tasks}</td>
-                <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                  <MoreVertical size={20} className="text-gray-400 inline-block cursor-pointer" />
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div className="space-y-4 mb-6">
+        {userData.map((user, index) => (
+          <div key={index} className="bg-white rounded-lg shadow hover:bg-gray-50">
+            <div className="flex items-center px-6 py-4">
+              <div className="flex-shrink-0 h-10 w-10">
+                <img className="h-10 w-10 rounded-full" src={user.img} alt="" />
+              </div>
+              <div className="ml-4 flex-grow">
+                <div className="text-sm font-medium text-gray-900">{user.name}</div>
+              </div>
+              <div className="flex items-center space-x-4">
+                <div className="text-sm text-gray-500 w-24">{user.revenue}</div>
+                <div className="text-sm text-gray-500 w-24">{user.sessions}</div>
+                <div className="text-sm text-gray-500 w-24">{user.projects}</div>
+                <div className="text-sm text-gray-500 w-24">{user.tasks}</div>
+                <MoreVertical size={20} className="text-gray-400 cursor-pointer" />
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
 
       <div className="bg-white p-6 rounded-lg shadow">

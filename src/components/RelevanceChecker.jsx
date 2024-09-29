@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { ChevronDown, Info, Check, MoreVertical } from 'lucide-react';
+import { ChevronDown, Info, Check, MoreVertical,Plus } from 'lucide-react';
+
 
 const InstructionSection = ({ title }) => (
-  <div className="border border-gray-300 rounded-md p-4 mb-4">
+  <div className="border border-gray-300 rounded-md p-4 mb-4 bg-white">
     <div className="flex justify-between items-center mb-2">
       <span className="font-semibold">{title}</span>
       <ChevronDown className="w-5 h-5 text-gray-500" />
@@ -61,7 +62,7 @@ export default function RelevanceChecker() {
         <img src="/logo.png" alt="Logo" className="h-6" />
       </header>
       <div className="container mx-auto p-4">
-        <div className="flex flex-col md:flex-row gap-4">
+        <div className="flex flex-col md:flex-row gap-">
           <div className="flex-grow">
             <h2 className="text-xl font-semibold mb-4">Article Title</h2>
             <textarea
@@ -102,23 +103,61 @@ export default function RelevanceChecker() {
               </button>
             </div>
           </div>
-          <div className="md:w-80">
-            <div className="bg-white p-4 rounded-md shadow-md">
-              <h2 className="text-xl font-semibold mb-4">Search</h2>
-              <div className="flex items-center mb-4">
-                <input
-                  type="text"
-                  className="flex-grow p-2 border border-gray-300 rounded-l-md"
-                  placeholder="research title, Doi, keyword"
-                />
-                <button className="bg-[#3D5A80] text-white p-2 rounded-r-md hover:bg-[#3D5A80] transition-colors">
-                  Search
+          <div className="md:w-100">
+            <div className=" p-4 rounded-md ">
+              <div className="shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1),0_4px_6px_-1px_rgba(0,0,0,0.1)] shadow-gray-300 p-4 mb-4 mt-4 w-full">
+                <h2 className="text-xl font-bold text-black mb-4 font-poppins">Search</h2>
+                <div className="flex items-center mb-4 mt-4">
+                  <input
+                    type="text"
+                    className="flex-grow p-2 border border-gray-300 rounded-l-md font-poppins"
+                    placeholder="research title, Doi, keyword"
+                  />
+                  <button className="bg-[#3D5A80] text-white p-2 rounded-r-md hover:bg-[#3D5A80] transition-colors font-poppins">
+                    Search
+                  </button>
+                </div>
+              </div>
+              <div className="flex justify-between items-center mb-4">
+                <div>
+                  <span className="font-bold text-black font-poppins">Research Article Title</span>
+                  <div className="text-black font-poppins">Forella and Mayer - The Cambridge Handbook...</div>
+                </div>
+                <button className="bg-gray-100 text-black px-4 py-2 rounded-md flex items-center border border-gray-300 hover:border-black transition-all duration-300 ease-in-out font-poppins">
+                  <Plus className="text-black" />
+                  <span className="ml-2">ADD</span>
                 </button>
               </div>
-              <InstructionSection title="INSTRUCTION_TITLE" />
-              <InstructionSection title="INSTRUCTION_TITLE" />
-              <InstructionSection title="INSTRUCTION_TITLE" />
-              <InstructionSection title="INSTRUCTION_TITLE" />
+              <div className="flex justify-between items-center mb-4">
+                <div>
+                  <span className="font-bold text-black font-poppins">Research Article Title</span>
+                  <div className="text-black font-poppins">Forella and Mayer - The Cambridge Handbook...</div>
+                </div>
+                <button className="bg-gray-100 text-black px-4 py-2 rounded-md flex items-center border border-gray-300 hover:border-black transition-all duration-300 ease-in-out font-poppins">
+                  <Plus className="text-black" />
+                  <span className="ml-2">ADD</span>
+                </button>
+              </div>
+              <div className="flex justify-between items-center mb-4">
+                <div>
+                  <span className="font-bold text-black font-poppins">Research Article Title</span>
+                  <div className="text-black font-poppins">Forella and Mayer - The Cambridge Handbook...</div>
+                </div>
+                <button className="bg-gray-100 text-black px-4 py-2 rounded-md flex items-center border border-gray-300 hover:border-black transition-all duration-300 ease-in-out font-poppins">
+                  <Plus className="text-black" />
+                  <span className="ml-2">ADD</span>
+                </button>
+              </div>
+              <div className="flex justify-between items-center mb-4">
+                <div>
+                  <span className="font-bold text-black font-poppins">Research Article Title</span>
+                  <div className="text-black font-poppins">Forella and Mayer - The Cambridge Handbook...</div>
+                </div>
+                <button className="bg-gray-100 text-black px-4 py-2 rounded-md flex items-center border border-gray-300 hover:border-black transition-all duration-300 ease-in-out font-poppins">
+                  <Plus className="text-black" />
+                  <span className="ml-2">ADD</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>

@@ -70,7 +70,7 @@ const Testimonials = () => {
   const renderTestimonial = (testimonial, index) => (
     <div 
       key={`${testimonial.name}-${index}`}
-      className={`${isMobile ? 'w-full' : 'w-1/3'} flex-shrink-0 bg-white p-6 rounded-lg shadow-md transition-all duration-500 ease-in-out hover:shadow-lg ${isMobile ? 'snap-center' : 'mr-4'}`}
+      className={`${isMobile ? 'w-full' : 'w-1/3'} flex-shrink-0 bg-white p-6 rounded-lg shadow-md transition-all duration-500 ease-in-out hover:shadow-lg hover:scale-105 ${isMobile ? 'snap-center' : 'mr-4'}`}
     >
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center">

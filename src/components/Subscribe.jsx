@@ -27,7 +27,7 @@ const Subscribe = () => {
           <div className="w-full md:w-1/2">
             <div className="flex flex-col sm:flex-row w-full">
               <input type="email" placeholder="Your email" className="py-3 px-2 w-full sm:w-3/5 mb-2 sm:mb-0 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-transparent" />
-              <button className="p-3 w-full sm:w-2/5 rounded-lg bg-[#3D5A80] text-white sm:ml-2 hover:bg-white hover:text-[#3D5A80] hover:border-2 hover:border-[#3D5A80] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400">Subscribe</button>
+              <button className="p-3 w-full sm:w-2/5 rounded-[3px] bg-[#3D5A80] text-white sm:ml-2 hover:bg-white hover:text-[#3D5A80] hover:border-2 hover:border-[#3D5A80] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400">Subscribe</button>
             </div>
           </div>
         </div>

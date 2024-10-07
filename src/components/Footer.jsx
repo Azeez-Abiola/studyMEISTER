@@ -6,19 +6,19 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap justify-between items-start md:ml-[120px]">
           <div className="w-full md:w-1/4 mb-8 md:mb-0">
-            <img src="./logo.png" alt="Company Logo" className="mb-4 mt-6 w-24 h-auto" />
+            <img src="./logo.png" alt="Company Logo" className="mb-4 mt-6 w-32 h-auto" />
             <p className="text-gray-600 mb-4 text-sm">
               Lorem ipsum dolor sit amet consectetur. Quis tortor gravida nibh arcu id purus ullamcorper. Vel vel erat semper augue.
             </p>
-            <div className="flex space-x-3">
-              <img src="/facebook-icon.png" alt="Facebook" className="w-5 h-5" />
-              <img src="/whatsapp-icon.png" alt="Twitter" className="w-5 h-5" />
-              <img src="/youtube-icon.png" alt="Instagram" className="w-5 h-5" />
+            <div className="flex space-x-4">
+              <img src="/facebook-icon.png" alt="Facebook" className="w-6 h-6" />
+              <img src="/whatsapp-icon.png" alt="Twitter" className="w-6 h-6" />
+              <img src="/youtube-icon.png" alt="Instagram" className="w-6 h-6" />
             </div>
           </div>
           
           <div className="w-full sm:w-1/2 md:w-1/4 mb-8 md:mb-0 md:pl-40">
-            <h3 className="text-base font-semibold mb-2">Features</h3>
+            <h3 className="text-base font-bold mb-2">Features</h3>
             <ul className="text-gray-600 text-sm">
               <li className="mb-2">Features</li>
               <li className="mb-2">Pricing</li>
@@ -27,7 +27,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className="w-full sm:w-1/2 md:w-1/4 mb-8 md:mb-0 md:pl-20">
-            <h3 className="text-base font-semibold mb-2">Engage</h3>
+            <h3 className="text-base font-bold mb-2">Engage</h3>
             <ul className="text-gray-600 text-sm">
               <li className="mb-2">FAQ</li>
               <li className="mb-2">Tutorials</li>
@@ -37,7 +37,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className="w-full sm:w-1/2 md:w-1/4 mb-8 md:mb-0">
-            <h3 className="text-base font-semibold mb-2">Earn money</h3>
+            <h3 className="text-base font-bold mb-2">Earn money</h3>
             <ul className="text-gray-600 text-sm">
               <li className="mb-2">Become partner</li>
               <li className="mb-2">Affiliate</li>

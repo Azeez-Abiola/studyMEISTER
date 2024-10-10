@@ -48,32 +48,16 @@ const Header = () => {
           <div className={`w-6 h-0.5 bg-gray-600 mt-1.5 transition-all duration-300 ${isNavOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></div>
         </button>
         <nav className={`fixed inset-0 z-10 bg-white transform transition-transform duration-300 ease-in-out ${isNavOpen ? 'translate-x-0' : 'translate-x-full'} lg:relative lg:inset-auto lg:transform-none lg:transition-none lg:flex lg:items-center lg:justify-end lg:flex-1`}>
-          <div className="flex flex-col lg:flex-row items-center justify-center h-full space-y-4 lg:space-y-0 lg:space-x-6 xl:space-x-8 2xl:space-x-12 text-md font-rubik">
-            <div className="lg:flex lg:items-center lg:space-x-6 xl:space-x-8 2xl:space-x-12">
-              <a href="#pricing" className="text-[#2B2B2B] hover:text-gray-900 relative group inline-block pl-4 font-semibold">
-                <span className="relative">Pricing</span>
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#E16741] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-              </a>
-              <a href="#testimonials" className="text-[#2B2B2B] hover:text-gray-900 relative group inline-block pl-4 font-semibold">
-                <span className="relative">Testimonial</span>
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#E16741] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-              </a>
-              <a href="#help" className="text-[#2B2B2B] hover:text-gray-900 relative group inline-block pl-4 font-semibold">
-                <span className="relative">Help</span>
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#E16741] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-              </a>
-            </div>
-            <div className="lg:flex lg:items-center lg:space-x-4 xl:space-x-6 2xl:space-x-8">
-              <Link to="/signin" className="text-[#2B2B2B] hover:text-gray-900 relative group inline-block pl-4 font-semibold">
-                <span className="relative">Login</span>
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#E16741] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-              </Link>
-              <Link to="signup" className="px-4 py-1 font-semibold text-[#E16741] bg-white 
-                    border border-[#E16741] rounded-lg hover:bg-[#E16741] hover:text-white 
-                    transition-colors duration-300">
-                Sign up
-              </Link>
-            </div>
+          <div className="flex flex-col lg:flex-row items-center justify-center h-full space-y-4 lg:space-y-0 lg:space-x-6 xl:space-x-8 2xl:space-x-12 text-md font-rubik lg:font-semibold lg:pl-16">
+            <a href="#pricing" className="text-[#2B2B2B] hover:text-gray-900">Pricing</a>
+            <a href="#testimonials" className="text-[#2B2B2B] hover:text-gray-900">Testimonial</a>
+            <a href="#help" className="text-[#2B2B2B] hover:text-gray-900">Help</a>
+            <Link to="/signin" className="text-[#2B2B2B] hover:text-gray-900">Login</Link>
+            <Link to="signup" className="px-4 py-1 font-semibold text-[#E16741] bg-white 
+                  border border-[#E16741] rounded-lg hover:bg-[#E16741] hover:text-white 
+                  transition-colors duration-300">
+              Sign up
+            </Link>
           </div>
         </nav>
       </div>

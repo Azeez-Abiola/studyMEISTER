@@ -14,15 +14,21 @@ import EmailVerification from './components/EmailVerification';
 import VerificationCode from './components/VerificationCode';
 import Pricing from './components/Pricing';
 import Checkout from './components/Checkout';
-import RelevanceChecker from './components/RelevanceChecker'; // Added RelevanceChecker
-import AdminDashboard from './components/AdminDashboard'; // Added AdminDashboard
-import Paraphraser from './components/Paraphraser'; // Added Paraphraser
+import RelevanceChecker from './components/RelevanceChecker';
+import AdminDashboard from './components/AdminDashboard';
+import Paraphraser from './components/Paraphraser';
 
 const Preloader = () => (
   <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-white z-50">
     <div className="w-16 h-16 rounded-full animate-spin" style={{
       background: 'conic-gradient(from 0deg, #3D5A80, #98C1D9)',
     }}></div>
+  </div>
+);
+
+const CenteredContent = ({ children }) => (
+  <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+    {children}
   </div>
 );
 
@@ -34,8 +40,8 @@ const Home = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-      setTimeout(() => setShowContent(true), 100); // Slight delay before showing content
-    }, 500); // Reduced preloader time to 500ms
+      setTimeout(() => setShowContent(true), 100);
+    }, 500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -68,7 +74,7 @@ const Home = () => {
     setLoading(true);
     setTimeout(() => {
       navigate('/signup');
-    }, 500); // Reduced loading time to 500ms
+    }, 500);
   };
 
   return (
@@ -78,24 +84,16 @@ const Home = () => {
         <>
           <Header onSignUpClick={handleSignUpClick} />
           <main className="flex flex-col">
-            <div className="w-full px-4 sm:px-6 lg:px-8">
+            <CenteredContent>
               <Hero />
-            </div>
-            <div className="w-full px-4 sm:px-6 lg:px-8">
               <FeatureStats />
-            </div>
-            <div className="w-full px-4 sm:px-6 lg:px-8">
               <Features />
-            </div>
-            <div id="testimonials" className="w-full px-4 sm:px-6 lg:px-8">
-              <Testimonials />
-            </div>
-            <div className="w-full px-4 sm:px-6 lg:px-8">
+              <div id="testimonials">
+                <Testimonials />
+              </div>
               <Subscribe />
-            </div>
-            <div className="w-full px-4 sm:px-6 lg:px-8">
               <Footer />
-            </div>
+            </CenteredContent>
           </main>
         </>
       )}
@@ -108,7 +106,7 @@ const AppContent = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 500); // Reduced loading time to 500ms
+    const timer = setTimeout(() => setLoading(false), 500);
     return () => clearTimeout(timer);
   }, [location]);
 
@@ -117,19 +115,21 @@ const AppContent = () => {
   }
 
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/signin" element={<SignIn />} />
-      <Route path="/signup" element={<SignUp loading={loading} />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/email-verification" element={<EmailVerification />} />
-      <Route path="/verification" element={<VerificationCode />} />
-      <Route path="/pricing" element={<Pricing />} />
-      <Route path="/checkout" element={<Checkout />} />
-      <Route path="/relevance-checker" element={<RelevanceChecker />} /> {/* Added RelevanceChecker route */}
-      <Route path="/admin-dashboard" element={<AdminDashboard />} /> {/* Added AdminDashboard route */}
-      <Route path="/paraphraser" element={<Paraphraser />} /> {/* Added Paraphraser route */}
-    </Routes>
+    <CenteredContent>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp loading={loading} />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/email-verification" element={<EmailVerification />} />
+        <Route path="/verification" element={<VerificationCode />} />
+        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/relevance-checker" element={<RelevanceChecker />} />
+        <Route path="/admin-dashboard" element={<AdminDashboard />} />
+        <Route path="/paraphraser" element={<Paraphraser />} />
+      </Routes>
+    </CenteredContent>
   );
 };
 

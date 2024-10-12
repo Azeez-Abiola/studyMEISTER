@@ -7,7 +7,7 @@ import Features from './components/Features';
 import Testimonials from './components/Testimonials';
 import Subscribe from './components/Subscribe';
 import Footer from './components/Footer';
-import SignIn from './components/SignIn';
+import Login from './components/Login';
 import SignUp from './components/SignUp';
 import Dashboard from './components/Dashboard';
 import EmailVerification from './components/EmailVerification';
@@ -32,104 +32,62 @@ const CenteredContent = ({ children }) => (
   </div>
 );
 
-const Home = () => {
-  const [loading, setLoading] = useState(true);
-  const [showContent, setShowContent] = useState(false);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-      setTimeout(() => setShowContent(true), 100);
-    }, 500);
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    const handleSmoothScroll = (e) => {
-      e.preventDefault();
-      const targetId = e.target.getAttribute('href').substring(1);
-      const targetElement = document.getElementById(targetId);
-      if (targetElement) {
-        targetElement.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
-        });
-      }
-    };
-
-    const links = document.querySelectorAll('a[href^="#"]');
-    links.forEach(link => {
-      link.addEventListener('click', handleSmoothScroll);
-    });
-
-    return () => {
-      links.forEach(link => {
-        link.removeEventListener('click', handleSmoothScroll);
-      });
-    };
-  }, []);
-
-  const handleSignUpClick = () => {
-    setLoading(true);
-    setTimeout(() => {
-      navigate('/signup');
-    }, 500);
-  };
-
-  return (
-    <div className="bg-white-100 min-h-screen">
-      {loading && <Preloader />}
-      {showContent && (
-        <>
-          <Header onSignUpClick={handleSignUpClick} />
-          <main className="flex flex-col">
-            <CenteredContent>
-              <Hero />
-              <FeatureStats />
-              <Features />
-              <div id="testimonials">
-                <Testimonials />
-              </div>
-              <Subscribe />
-              <Footer />
-            </CenteredContent>
-          </main>
-        </>
-      )}
+const Home = () => (
+  <>
+    <Hero />
+    <FeatureStats />
+    <Features />
+    <div id="testimonials">
+      <Testimonials />
     </div>
-  );
-};
+    <Subscribe />
+  </>
+);
 
 const AppContent = () => {
   const [loading, setLoading] = useState(true);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 500);
     return () => clearTimeout(timer);
   }, [location]);
 
+  const handleSignUpClick = () => {
+    setLoading(true);
+    setTimeout(() => {
+      navigate('/signup');
+      setLoading(false);
+    }, 500);
+  };
+
   if (loading) {
     return <Preloader />;
   }
 
   return (
-    <CenteredContent>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp loading={loading} />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/email-verification" element={<EmailVerification />} />
-        <Route path="/verification" element={<VerificationCode />} />
-        <Route path="/pricing" element={<Pricing />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="/relevance-checker" element={<RelevanceChecker />} />
-        <Route path="/admin-dashboard" element={<AdminDashboard />} />
-        <Route path="/paraphraser" element={<Paraphraser />} />
-      </Routes>
-    </CenteredContent>
+    <div className="min-h-screen flex flex-col">
+      <Header onSignUpClick={handleSignUpClick} />
+      <main className="flex-grow pt-16"> {/* Added pt-16 for header space */}
+        <CenteredContent>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/email-verification" element={<EmailVerification />} />
+            <Route path="/verification" element={<VerificationCode />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/relevance-checker" element={<RelevanceChecker />} />
+            <Route path="/admin-dashboard" element={<AdminDashboard />} />
+            <Route path="/paraphraser" element={<Paraphraser />} />
+          </Routes>
+        </CenteredContent>
+      </main>
+      <Footer />
+    </div>
   );
 };
 

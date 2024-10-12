@@ -13,23 +13,29 @@ const Features = () => {
   }, []);
 
   const features = [
-    { text: "Powerful and easy protection features", img: "./check.png" },
-    { text: "Instant live barrier", img: "./check.png" },
+    { text: "Powerfull online protection.", img: "./check.png" },
+    { text: "Internet with borders", img: "./check.png" },
     { text: "Supercharged VPN", img: "./check.png" },
     { text: "No specific time limits", img: "./check.png" }
   ];
 
   return (
-    <section className="rising p-4 sm:p-8 md:p-12 bg-white text-center">
-      <div className="mt-4 sm:mt-8 flex flex-col md:flex-row justify-between items-center">
-        <div className="w-full md:w-1/2 md:ml-[80px] mb-8 md:mb-0">
-          <img src="./featuresimg.png" alt="Features" className="w-full h-auto" />
+    <section className="p-4 sm:p-8 md:p-16 bg-white font-rubik">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
+        <div className="w-full md:w-[45%] lg:w-[48%] mb-8 md:mb-0">
+          <div className="relative w-full pt-[80%]">
+            <img 
+              src="./featuresimg.png" 
+              alt="Features" 
+              className="absolute top-0 left-0 w-full h-full object-cover object-center"
+            />
+          </div>
         </div>
-        <div className="w-full md:w-1/2 space-y-4 text-left md:ml-[35px]">
+        <div className="w-full md:w-[50%] lg:w-[48%] space-y-6 text-left md:pl-8 lg:pl-20"> {/* Added padding-left */}
           <div className="text-left">
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-800">We provide many features you can use</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-800">We provide many <br /> features you can use</h2>
             <p className="mt-4 text-gray-500">
-              Lorem ipsum dolor sit amet consectetur. Quis tortor gravida nibh arcu id purus ullamcorper. Vel vel erat semper augue.
+              Lorem ipsum dolor sit amet consectetur. Quis tortor <br /> gravida nibh arcu id purus ullamcorper. Vel vel erat <br /> semper augue.
             </p>
           </div>
           {features.map((feature, index) => (
@@ -39,11 +45,6 @@ const Features = () => {
             </div>
           ))}
         </div>
-      </div>
-      <div className="hidden md:flex mt-8 justify-center space-x-2">
-        <div className="w-3 h-3 rounded-full bg-gray-300"></div>
-        <div className="w-3 h-3 rounded-full bg-gray-300"></div>
-        <div className="w-3 h-3 rounded-full bg-gray-300"></div>
       </div>
     </section>
   );

@@ -6,28 +6,28 @@ const testimonials = [
     subName: 'Warsaw pland',
     rating: 4.5, 
     avatar: './testimonials1.png',
-    testimonial: '""wow...iam very happy to use this vpn,iturned out to be more than my expectations and so far there have been no problems.laslesvpn always the best"."',
+    testimonial: '""wow...iam very happy to use this vpn,it turned out to be more than my  expectations and so far there have been no problems. laslesvpn always the best"."',
   },
   {
     name: 'Darlene Robertson',
     subName: 'Warsaw pland',
     rating: 4.5,
     avatar: './testimonials2.png',
-    testimonial: '""wow...iam very happy to use this vpn,it turned out to be more than my expectations and so far there have been no problems.laslesvpn always the best"."',
+    testimonial: '""wow...iam very happy to use this vpn,it turned out to be more than my expectations and so far there have been no problems. laslesvpn always the best"."',
   },
   {
     name: 'Darrell Steward',
     subName: 'Warsaw pland',
     rating: 4.5,
     avatar: './testimonials3.png',
-    testimonial: '"wow...iam very happy to use this vpn,iturned out to be more than my expectations and so far there have been no problems.laslesvpn always the best"."',
+    testimonial: '"wow...iam very happy to use this vpn,iturned out to be more than my expectations and so far there have been no problems. laslesvpn always the best"."',
   },
   {
     name: 'John Doe',
     subName: 'Warsaw pland',
     rating: 4.5,
     avatar: './testimonials4.jpg',
-    testimonial: '"Twow...iam very happy to use this vpn,iturned out to be more than my expectations and so far there have been no problems.laslesvpn always the best"."',
+    testimonial: '"Twow...iam very happy to use this vpn,iturned out to be more than my expectations and so far there have been no problems. laslesvpn always the best"."',
   },
 ];
 
@@ -70,29 +70,30 @@ const Testimonials = () => {
   const renderTestimonial = (testimonial, index) => (
     <div 
       key={`${testimonial.name}-${index}`}
-      className={`${isMobile ? 'w-full' : 'w-1/3'} flex-shrink-0 bg-white p-6 rounded-lg shadow-md transition-all duration-500 ease-in-out hover:shadow-lg hover:scale-105 ${isMobile ? 'snap-center' : 'mr-4'}`}
+      className={`${isMobile ? 'w-full' : 'w-[30%]'} flex-shrink-0 bg-white p-4 rounded-lg shadow-md transition-all duration-500 ease-in-out hover:shadow-lg hover:scale-105 ${isMobile ? 'snap-center' : 'mr-4'} border border-gray-300 hover:border-[#E16741] hover:border-t-[#E16741]`}
+      style={{ minHeight: '100px' }} // Changed: Increased the height of each testimonial card from 80px to 100px
     >
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex items-center justify-between mb-2">
         <div className="flex items-center">
-          <img src={testimonial.avatar} alt={testimonial.name} className="w-12 h-12 rounded-full mr-3" />
+          <img src={testimonial.avatar} alt={testimonial.name} className="w-10 h-10 rounded-full mr-2" />
           <div className="text-left">
-            <h3 className="text-lg font-bold text-black">{testimonial.name}</h3>
-            <p className="text-sm text-gray-500">{testimonial.subName}</p>
+            <h3 className="text-base font-bold text-black">{testimonial.name}</h3>
+            <p className="text-xs text-gray-500">{testimonial.subName}</p>
           </div>
         </div>
         <div className="flex items-center">
-          <span className="text-sm text-gray-500 mr-1">{testimonial.rating}</span>
-          <svg className="w-4 h-4 text-yellow-400 inline-block" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <span className="text-xs text-gray-500 mr-1">{testimonial.rating}</span>
+          <svg className="w-3 h-3 text-yellow-400 inline-block" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
           </svg>
         </div>
       </div>
-      <p className="text-gray-600 text-left">{testimonial.testimonial}</p>
+      <p className="text-gray-600 text-left pt-2 text-sm">{testimonial.testimonial}</p>
     </div>
   );
 
   return (
-    <section className="rising p-12 bg-gray-50 text-center">
+    <section className="rising p-12 text-center">
       <h2 className="text-2xl font-bold text-gray-800">Trusted by thousands of <br /> happy customers</h2>
       <p className="mt-4 text-gray-500 max-w-lg mx-auto">
         Lorem ipsum dolor sit amet consectetur. Dui tortor gravida nibh arcu id purus et loremque. Nulla sed semper augue.
@@ -104,7 +105,7 @@ const Testimonials = () => {
             isMobile ? 'overflow-x-auto snap-x snap-mandatory scrollbar-hide' : ''
           }`}
           style={{ 
-            transform: isMobile ? 'none' : `translateX(-${currentSlide * (100 / 3)}%)`,
+            transform: isMobile ? 'none' : `translateX(-${currentSlide * (100 / 4)}%)`,
             scrollbarWidth: 'none',
             msOverflowStyle: 'none'
           }}

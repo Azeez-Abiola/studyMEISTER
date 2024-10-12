@@ -24,18 +24,18 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="p-4 sm:p-8 md:p-16 bg-white flex flex-col md:flex-row justify-between items-center mt-2 font-rubik">
-      <div ref={textRef} className="text-left w-full md:w-1/2 mb-8 md:mb-0 md:mr-2 md:ml-24">
-        <h1 className="text-3xl sm:text-4xl text-gray-800">
+    <section className="p-4 sm:p-8 md:p-16 bg-white flex flex-col md:flex-row justify-between items-center mt-4 font-rubik">
+      <div ref={textRef} className="text-left w-full md:w-1/2 mb-8 md:mb-0 md:mr- md:ml-8">
+        <h1 className="text-3xl sm:text-4xl text-gray-800 mb-8">
           <span className="font-normal">Write articles quickly with Study</span>
           <span className="font-bold">MEISTER</span>
         </h1>
-        <p className="mt-4 sm:mt-6 text-gray-500">
+        <p className="mt-16 sm:mt-8 text-gray-500">
           Lorem ipsum dolor sit amet consectetur. Dui tortor gravida <br />nibh arcu id  purus et loremque. Nulla sed semper augue.
         </p>
-        <button className="w-full sm:w-auto px-6 sm:px-10 py-2 mt-6 sm:mt-8 text-white bg-[#3D5A80] rounded-[3px] hover:bg-white hover:text-[#3D5A80] border-2 border-[#3D5A80] transition-colors duration-300 ease-in-out">Try it now!</button>
+        <button className="w-full sm:w-auto px-6 sm:px-10 py-2 mt-6 sm:mt-10 text-white bg-[#3D5A80] rounded-[3px] hover:bg-white hover:text-[#3D5A80] border-2 border-[#3D5A80] transition-colors duration-300 ease-in-out">Try it now!</button>
       </div>
-      <div ref={imgRef} className="w-full md:w-1/2 md:mr-16">
+      <div ref={imgRef} className="w-full md:w-3/5 md:mr-16">
         <img src="./heroimg.png" alt="StudyMEISTER" className="w-full h-auto" />
       </div>
     </section>

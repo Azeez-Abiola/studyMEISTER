@@ -2,10 +2,10 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-100 py-6">
-      <div className="container mx-auto px-4">
+    <footer className="bg-gray-100 py-6 w-full">
+      <div className="max-w-[1440px] mx-auto px-4">
         <div className="flex flex-wrap justify-between items-start md:ml-[120px] pt-12">
-          <div className="w-full md:w-1/3 lg:w-1/4 mb-8 md:mb-0 md:pl-4"> {/* Added md:pl-4 to move the content to the right */}
+          <div className="w-full md:w-1/3 lg:w-1/4 mb-8 md:mb-0">
             <img src="./logo.png" alt="Company Logo" className="mb-4 w-40 h-auto" />
             <p className="text-gray-600 mb-4 text-sm">
               Lorem ipsum dolor sit amet consectetur. Quis tortor gravida nibh arcu id purus ullamcorper. Vel vel erat semper augue.
@@ -17,19 +17,19 @@ const Footer = () => {
             </div>
           </div>
           
-          <div className="flex flex-wrap md:w-2/3 lg:w-3/5 justify-end"> {/* Changed lg:w-1/2 to lg:w-3/5 and added justify-end */}
-            <div className="w-1/2 sm:w-1/4 mb-8 md:mb-0 pr-2"> {/* Changed sm:w-1/3 to sm:w-1/4 and reduced pr-4 to pr-2 */}
+          <div className="flex flex-wrap md:w-2/3 lg:w-3/5">
+            <div className="w-1/2 sm:w-1/4 mb-8 md:mb-0 pr-4">
               <h3 className="text-base font-bold mb-2">Features</h3>
-              <ul className="text-gray-600 text-sm space-y-4"> {/* Added space-y-2 for spacing */}
+              <ul className="text-gray-600 text-sm space-y-4">
                 <li className="mb-2">Features</li>
                 <li className="mb-2">Pricing</li>
                 <li className="mb-2">Locations</li>
                 <li className="mb-2">Blog</li>
               </ul>
             </div>
-            <div className="w-1/2 sm:w-1/4 mb-8 md:mb-0 pr-2"> {/* Changed sm:w-1/3 to sm:w-1/4 and reduced pr-4 to pr-2 */}
+            <div className="w-1/2 sm:w-1/4 mb-8 md:mb-0 pr-4">
               <h3 className="text-base font-bold mb-2">Engage</h3>
-              <ul className="text-gray-600 text-sm space-y-4"> {/* Added space-y-2 for spacing */}
+              <ul className="text-gray-600 text-sm space-y-4">
                 <li className="mb-2">FAQ</li>
                 <li className="mb-2">Tutorials</li>
                 <li className="mb-2">About us</li>
@@ -37,17 +37,15 @@ const Footer = () => {
                 <li className="mb-2">Terms of service</li>
               </ul>
             </div>
-            <div className="w-full sm:w-1/4 mb-8 md:mb-0"> {/* Changed sm:w-1/3 to sm:w-1/4 */}
+            <div className="w-full sm:w-1/4 mb-8 md:mb-0">
               <h3 className="text-base font-bold mb-2">Earn money</h3>
-              <ul className="text-gray-600 text-sm space-y-4"> {/* Added space-y-2 for spacing */}
+              <ul className="text-gray-600 text-sm space-y-4">
                 <li className="mb-2">Become partner</li>
                 <li className="mb-2">Affiliate</li>
               </ul>
             </div>
           </div>
         </div>
-        
-        
       </div>
     </footer>
   );

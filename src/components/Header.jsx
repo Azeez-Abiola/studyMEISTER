@@ -60,8 +60,8 @@ const Header = () => {
       isScrolled ? 'bg-white/80 backdrop-blur-md shadow-md' : 'bg-white'
     }`}>
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between py-4">
-          <img src={"./logo.png"} alt="StudyMeister Logo" width={150} height={42} className="z-20 ml-8" />
+        <div className="flex items-center justify-between py-4 mt-2">
+          <img src={"./logo.png"} alt="StudyMeister Logo" width={150} height={42} className="z-20 ml-24" />
           <button
             className="z-20 p-2 lg:hidden"
             onClick={toggleNav}
@@ -71,8 +71,8 @@ const Header = () => {
             <div className={`w-6 h-0.5 bg-gray-600 mt-1.5 transition-all duration-300 ${isNavOpen ? 'opacity-0' : ''}`}></div>
             <div className={`w-6 h-0.5 bg-gray-600 mt-1.5 transition-all duration-300 ${isNavOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></div>
           </button>
-          <nav className={`fixed inset-0 z-10 bg-white transform transition-transform duration-300 ease-in-out ${isNavOpen ? 'translate-x-0' : 'translate-x-full'} lg:relative lg:inset-auto lg:transform-none lg:transition-none lg:flex lg:items-center lg:justify-end lg:flex-1`}>
-            <div className="flex flex-col lg:flex-row items-center justify-center h-full space-y-4 lg:space-y-0 lg:space-x-6 xl:space-x-8 2xl:space-x-12 text-md font-rubik">
+          <nav className={`fixed inset-0 z-10 bg-white transform transition-transform duration-300 ease-in-out ${isNavOpen ? 'translate-x-0' : 'translate-x-full'} lg:relative lg:inset-auto lg:transform-none lg:transition-none lg:flex lg:items-center lg:justify-end lg:flex-1 mr-16`}>
+            <div className="flex flex-col lg:flex-row items-center justify-center h-full space-y-4 lg:space-y-0 lg:space-x-6 xl:space-x-8 2xl:space-x-12 text-sm font-rubik">
               <div className="lg:flex lg:items-center lg:space-x-6 xl:space-x-8 2xl:space-x-12">
                 <a href="#pricing" className="text-[#2B2B2B] hover:text-gray-900 relative group inline-block pl-4 font-semibold">
                   <span className="relative">Pricing</span>

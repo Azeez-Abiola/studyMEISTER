@@ -20,18 +20,16 @@ const Features = () => {
   ];
 
   return (
-    <section className="p-4 sm:p-8 md:p-16 bg-white font-rubik">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
-        <div className="w-full md:w-[45%] lg:w-[48%] mb-8 md:mb-0">
-          <div className="relative w-full pt-[80%]">
-            <img 
-              src="./featuresimg.png" 
-              alt="Features" 
-              className="absolute top-0 left-0 w-full h-full object-cover object-center"
-            />
-          </div>
+    <section className="rising p-4 sm:p-8 md:p-12 bg-white text-center">
+      <div className="mt-4 sm:mt-8 flex flex-col md:flex-row justify-between items-center ml-24">
+        <div className="w-full md:w-[50%] md:pr-8 mb-8 md:mb-0">
+          <img 
+            src="./featuresimg.png" 
+            alt="Features" 
+            className="w-full h-auto md:h-[450px] object-cover"
+          />
         </div>
-        <div className="w-full md:w-[50%] lg:w-[48%] space-y-6 text-left md:pl-8 lg:pl-20"> {/* Added padding-left */}
+        <div className="w-full md:w-[50%] space-y-4 text-left md:pl-8">
           <div className="text-left">
             <h2 className="text-xl sm:text-2xl font-bold text-gray-800">We provide many <br /> features you can use</h2>
             <p className="mt-4 text-gray-500">
@@ -45,6 +43,11 @@ const Features = () => {
             </div>
           ))}
         </div>
+      </div>
+      <div className="hidden md:flex mt-8 justify-center space-x-2">
+        <div className="w-3 h-3 rounded-full bg-gray-300"></div>
+        <div className="w-3 h-3 rounded-full bg-gray-300"></div>
+        <div className="w-3 h-3 rounded-full bg-gray-300"></div>
       </div>
     </section>
   );

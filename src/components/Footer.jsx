@@ -17,8 +17,8 @@ const Footer = () => {
             </div>
           </div>
           
-          <div className="flex flex-wrap md:w-2/3 lg:w-3/5">
-            <div className="w-1/2 sm:w-1/4 mb-8 md:mb-0 pr-4">
+          <div className="flex flex-col md:flex-row md:w-2/3 lg:w-3/5">
+            <div className="w-full md:w-1/4 mb-8 md:mb-0 pr-4">
               <h3 className="text-base font-bold mb-2">Features</h3>
               <ul className="text-gray-600 text-sm space-y-4">
                 <li className="mb-2">Features</li>
@@ -27,7 +27,7 @@ const Footer = () => {
                 <li className="mb-2">Blog</li>
               </ul>
             </div>
-            <div className="w-1/2 sm:w-1/4 mb-8 md:mb-0 pr-4">
+            <div className="w-full md:w-1/4 mb-8 md:mb-0 pr-4">
               <h3 className="text-base font-bold mb-2">Engage</h3>
               <ul className="text-gray-600 text-sm space-y-4">
                 <li className="mb-2">FAQ</li>
@@ -37,7 +37,7 @@ const Footer = () => {
                 <li className="mb-2">Terms of service</li>
               </ul>
             </div>
-            <div className="w-full sm:w-1/4 mb-8 md:mb-0">
+            <div className="w-full md:w-1/4 mb-8 md:mb-0">
               <h3 className="text-base font-bold mb-2">Earn money</h3>
               <ul className="text-gray-600 text-sm space-y-4">
                 <li className="mb-2">Become partner</li>

@@ -6,28 +6,28 @@ const testimonials = [
     subName: 'Warsaw pland',
     rating: 4.5, 
     avatar: './testimonials1.png',
-    testimonial: '""wow...iam very happy to use this vpn,it turned out to be more than my expectations and so far there have been no problems.laslesvpn always the best"."',
+    testimonial: '"wow...iam very happy to use this vpn, it turned out to be more than my expectations and so far there have been no problems. laslesvpn always the best."',
   },
   {
     name: 'Darlene Robertson',
     subName: 'Warsaw pland',
     rating: 4.5,
     avatar: './testimonials2.png',
-    testimonial: '""wow...iam very happy to use this vpn,it turned out to be more than my expectations and so far there have been no problems.laslesvpn always the best"."',
+    testimonial: '"wow...iam very happy to use this vpn, it turned out to be more than my expectations and so far there have been no problems. laslesvpn always the best."',
   },
   {
     name: 'Darrell Steward',
     subName: 'Warsaw pland',
     rating: 4.5,
     avatar: './testimonials3.png',
-    testimonial: '"wow...iam very happy to use this vpn,iturned out to be more than my expectations and so far there have been no problems.laslesvpn always the best"."',
+    testimonial: '"wow...iam very happy to use this vpn, it turned out to be more than my expectations and so far there have been no problems. laslesvpn always the best."',
   },
   {
     name: 'John Doe',
     subName: 'Warsaw pland',
     rating: 4.5,
     avatar: './testimonials4.jpg',
-    testimonial: '"Twow...iam very happy to use this vpn,iturned out to be more than my expectations and so far there have been no problems.laslesvpn always the best"."',
+    testimonial: '"wow...iam very happy to use this vpn, it turned out to be more than my expectations and so far there have been no problems. laslesvpn always the best."',
   },
 ];
 
@@ -53,7 +53,7 @@ const Testimonials = () => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollTo({
         left: (currentSlide + 1) * scrollContainerRef.current.offsetWidth,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     }
     setActiveButton('next');
@@ -65,7 +65,7 @@ const Testimonials = () => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollTo({
         left: (currentSlide - 1) * scrollContainerRef.current.offsetWidth,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     }
     setActiveButton('prev');
@@ -75,7 +75,7 @@ const Testimonials = () => {
   const renderTestimonial = (testimonial, index) => (
     <div 
       key={`${testimonial.name}-${index}`}
-      className={`${isMobile ? 'w-full' : 'w-1/3'} flex-shrink-0 bg-white p-6 rounded-lg shadow-md transition-all duration-500 ease-in-out hover:shadow-lg hover:scale-105 ${isMobile ? 'snap-center' : 'mr-4'} border border-transparent hover:border-[#E16741]`}
+      className={`${isMobile ? 'w-full' : 'w-1/3'} flex-shrink-0 bg-white p-6 rounded-lg shadow-md transition-all duration-500 ease-in-out hover:shadow-lg hover:scale-105 ${isMobile ? 'snap-center' : 'mr-4'} border border-transparent hover:border-[#E16741] ${!isMobile && 'max-h-[250px] overflow-y-auto'}`} // Added max-height and overflow for desktop mode
     >
       <div className="flex items-center mb-4">
         <img src={testimonial.avatar} alt={testimonial.name} className="w-12 h-12 rounded-full mr-3" />
@@ -105,39 +105,37 @@ const Testimonials = () => {
       <div className="relative pb-24 overflow-hidden mt-8">
         <div 
           ref={scrollContainerRef}
-          className={`flex transition-transform duration-500 ease-in-out ${
-            isMobile ? 'overflow-x-auto snap-x snap-mandatory scrollbar-hide' : ''
-          }`}
+          className={`flex transition-transform duration-500 ease-in-out ${isMobile ? 'overflow-x-auto snap-x snap-mandatory scrollbar-hide' : ''}`}
           style={{ 
             transform: isMobile ? 'none' : `translateX(-${currentSlide * (100 / 3)}%)`,
             scrollbarWidth: 'none',
-            msOverflowStyle: 'none'
+            msOverflowStyle: 'none',
           }}
         >
           {isMobile
             ? testimonials.map(renderTestimonial)
             : [...testimonials, ...testimonials.slice(0, 2)].map(renderTestimonial)}
         </div>
-        <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between">
-          <div className="flex space-x-2">
-            {testimonials.map((_, index) => (
-              <div
-                key={index}
-                className={`h-3 rounded-full transition-all duration-300 ${
-                  index === currentSlide
-                    ? 'bg-[#3D5A80] w-12'
-                    : 'bg-gray-300 w-3'
-                }`}
-              ></div>
-            ))}
-          </div>
-          {!isMobile && (
-            <div className="flex space-x-8">
+
+        {/* Desktop: Arrows and Dots positioning */}
+        {!isMobile && (
+          <div className="absolute bottom-0 left-0 right-0 flex justify-between items-center">
+            <div className="flex space-x-2">
+              {testimonials.map((_, index) => (
+                <div
+                  key={index}
+                  className={`h-3 rounded-full transition-all duration-300 ${
+                    index === currentSlide
+                      ? 'bg-[#3D5A80] w-12'
+                      : 'bg-gray-300 w-3'
+                  }`}
+                ></div>
+              ))}
+            </div>
+            <div className="flex space-x-12">
               <button 
                 onClick={prevSlide} 
-                className={`p-2 rounded-full transition-colors duration-300 ${
-                  activeButton === 'prev' ? 'bg-[#3D5A80]' : 'bg-gray-300'
-                }`}
+                className={`p-2 rounded-full transition-colors duration-300 ${activeButton === 'prev' ? 'bg-[#3D5A80]' : 'bg-gray-300'}`}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 transform rotate-180" fill="none" viewBox="0 0 24 24" stroke="white">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -145,17 +143,51 @@ const Testimonials = () => {
               </button>
               <button 
                 onClick={nextSlide} 
-                className={`p-2 rounded-full transition-colors duration-300 ${
-                  activeButton === 'next' ? 'bg-[#3D5A80]' : 'bg-gray-300'
-                }`}
+                className={`p-2 rounded-full transition-colors duration-300 ${activeButton === 'next' ? 'bg-[#3D5A80]' : 'bg-gray-300'}`}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="white">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </button>
             </div>
-          )}
-        </div>
+          </div>
+        )}
+
+        {/* Mobile: Arrows below the card and above the dots */}
+        {isMobile && (
+          <>
+            <div className="flex justify-center mt-4">
+              <button 
+                onClick={prevSlide} 
+                className={`p-2 rounded-full transition-colors duration-300 ${activeButton === 'prev' ? 'bg-[#3D5A80]' : 'bg-gray-300'}`}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 transform rotate-180" fill="none" viewBox="0 0 24 24" stroke="white">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+              <button 
+                onClick={nextSlide} 
+                className={`p-2 ml-4 rounded-full transition-colors duration-300 ${activeButton === 'next' ? 'bg-[#3D5A80]' : 'bg-gray-300'}`}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="white">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+            <div className="flex justify-center mt-2">
+              {testimonials.map((_, index) => (
+                <div
+                  key={index}
+                  className={`h-3 rounded-full transition-all duration-300 mx-1 ${
+                    index === currentSlide
+                      ? 'bg-[#3D5A80] w-12'
+                      : 'bg-gray-300 w-3'
+                  }`}
+                ></div>
+              ))}
+            </div>
+          </>
+        )}
       </div>
     </section>
   );

@@ -25,29 +25,36 @@ const FeatureStats = () => {
       }`}
     >
       <div className="max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 rounded-[3px] shadow-[2px_2px_4px_rgba(174,174,174,0.5)] py-3 sm:py-4 md:py-5 hover:shadow-[4px_4px_12px_rgba(174,174,174,0.9)] transition-shadow duration-300">
-        <div className="flex flex-col sm:flex-row items-center justify-center relative pb-2 sm:pb-0 sm:pr-2 md:pr-4">
+        {/* Users Stat */}
+        <div className="flex flex-col sm:flex-row items-center justify-center relative pb-4 sm:pb-0">
           <img src="./featurestats1.png" alt="Users" className="w-8 h-8 mb-1 sm:mb-0 sm:mr-4" />
-          <div className="font-rubik font-bold">
-            <h2 className="text-lg sm:text-xl text-gray-800">{counts.users.toLocaleString()}+</h2>
-            <p className="text-sm text-gray-500 pr-9">Users</p>
+          <div className="font-rubik font-bold text-center sm:text-left">
+            <h2 className="text-lg sm:text-xl text-gray-800"><span className="font-bold">{counts.users.toLocaleString()}</span>+</h2>
+            <p className="text-sm text-gray-500">Users</p>
           </div>
           <div className="hidden sm:block absolute right-0 top-1/2 transform -translate-y-1/2 w-px h-2/3 bg-[#3D5A80]"></div>
         </div>
-        <div className="flex flex-col sm:flex-row items-center justify-center relative pb-2 sm:pb-0 sm:pr-2 md:pr-4">
-          <img src="./featurestats2.png" alt="Servers" className="w-8 h-8 mb-1 sm:mb-0 sm:mr-2" />
-          <div className="font-rubik font-bold">
-            <h2 className="text-lg sm:text-xl text-gray-800">{counts.servers}+</h2>
-            <p className="text-sm text-gray-500 pl-4">Journals</p>
+
+        {/* Servers Stat */}
+        <div className="flex flex-col sm:flex-row items-center justify-center relative pb-4 sm:pb-0">
+          <img src="./featurestats2.png" alt="Servers" className="w-8 h-8 mb-1 sm:mb-0 sm:mr-4" />
+          <div className="font-rubik font-bold text-center sm:text-left">
+            <h2 className="text-lg sm:text-xl text-gray-800"><span className="font-bold">{counts.servers}</span>+</h2>
+            <p className="text-sm text-gray-500">Journals</p>
           </div>
           <div className="hidden md:block absolute right-0 top-1/2 transform -translate-y-1/2 w-px h-2/3 bg-[#3D5A80]"></div>
         </div>
-        <div className="flex flex-col sm:flex-row items-center justify-center">
-          <img src="./featurestats3.png" alt="Articles" className="w-8 h-8 mb-1 sm:mb-0 sm:mr-2" />
-          <div className="font-rubik font-bold">
-            <h2 className="text-lg sm:text-xl text-gray-800 mr-16">
-              {counts.articles >= 1000000 ? '1M+' : `${Math.floor(counts.articles / 1000)}K+`}
+
+        {/* Articles Stat */}
+        <div className="flex flex-col sm:flex-row items-center justify-center pb-4 sm:pb-0">
+          <img src="./featurestats3.png" alt="Articles" className="w-8 h-8 mb-1 sm:mb-0 sm:mr-4" />
+          <div className="font-rubik font-bold text-center sm:text-left">
+            <h2 className="text-lg sm:text-xl text-gray-800">
+              <span className="font-bold">
+                {counts.articles >= 1000000 ? '1M' : `${Math.floor(counts.articles / 1000)}K`}
+              </span>+
             </h2>
-            <p className="text-sm text-gray-500 pl-4">Published Articles</p>
+            <p className="text-sm text-gray-500">Published Articles</p>
           </div>
         </div>
       </div>

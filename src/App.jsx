@@ -18,24 +18,26 @@ import RelevanceChecker from './components/RelevanceChecker';
 import AdminDashboard from './components/AdminDashboard';
 import Paraphraser from './components/Paraphraser';
 
+// CenteredContent ensures max-width scaling across various viewports
 const CenteredContent = ({ children }) => (
-  <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+  <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
     {children}
   </div>
 );
 
+// Home Component that contains the main layout
 const Home = () => (
   <>
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center w-full">
       <CenteredContent>
         <Header />
         <main className="w-full">
-          <div className="max-w-[1440px] mx-auto">
+          <div className="w-full max-w-full mx-auto">
             <Hero />
           </div>
           <FeatureStats />
           <Features />
-          <div id="testimonials">
+          <div id="testimonials" className="w-full">
             <Testimonials />
           </div>
           <Subscribe />
@@ -46,10 +48,11 @@ const Home = () => (
   </>
 );
 
+// App Component with routes
 const App = () => {
   return (
     <Router>
-      <div className="min-h-screen">
+      <div className="min-h-screen w-full">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />

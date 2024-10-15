@@ -25,7 +25,7 @@ const Subscribe = () => {
             </p>
           </div>
           <div className="w-full md:w-1/2 flex justify-center md:justify-end">
-            <button className="px-8 sm:px-12 md:px-16 py-2 sm:py-3 w-full sm:w-auto rounded-[4px] bg-[#3D5A80] text-white text-sm sm:text-base hover:bg-white hover:text-[#3D5A80] hover:border-2 hover:border-[#3D5A80] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400">
+            <button className=" md:mr-12 px-8 sm:px-12 md:px-12 py-2 sm:py-3 w-full sm:w-auto rounded-[4px] bg-[#3D5A80] text-white text-sm sm:text-base hover:bg-white hover:text-[#3D5A80] hover:border-2 hover:border-[#3D5A80] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400">
               Subscribe now
             </button>
           </div>

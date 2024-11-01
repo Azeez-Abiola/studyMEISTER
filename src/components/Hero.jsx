@@ -54,7 +54,8 @@ const Hero = () => {
                  min-[1024px]:mt-16
                  min-[1072px]:mt-2
                  min-[1251px]:mb-[-12rem]
-                 max-[767px]:min-[639px]:mb-8" 
+                 max-[767px]:min-[639px]:mb-4
+                 max-[639px]:mb-8" 
       style={{ 
         zIndex: 0,
       }}
@@ -94,13 +95,16 @@ const Hero = () => {
       
       <div 
         ref={imgRef} 
-        className="w-full mt-8 px-4 sm:px-0 mb-32
+        className="w-full mt-8 px-4 sm:px-0 mb-16
                    md:w-[50%] md:mt-4 md:mr-8 md:-ml-4 md:mb-0
                    lg:w-1/2 lg:mr-40 lg:-ml-8
                    min-[768px]:w-[45%]
                    min-[820px]:w-[48%]
                    min-[1024px]:w-[45%] min-[1024px]:mr-0
-                   min-[1072px]:w-1/2 min-[1072px]:mr-40"
+                   min-[1072px]:w-1/2 min-[1072px]:mr-40
+                   min-[640px]:max-[767px]:w-[75%]
+                   min-[640px]:max-[767px]:mx-auto
+                   min-[640px]:max-[767px]:mb-16"
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         style={{
@@ -112,7 +116,8 @@ const Hero = () => {
           src="./hero-img.png" 
           alt="StudyMEISTER" 
           className="w-full h-auto max-w-[100%] sm:max-w-[110%] mx-auto
-                     max-[767px]:max-w-[85%]
+                     min-[640px]:max-[767px]:max-w-[95%]
+                     min-[640px]:max-[767px]:mb-8
                      min-[768px]:max-w-[110%]
                      min-[820px]:max-w-[120%]
                      min-[1024px]:max-w-[140%] min-[1024px]:ml-8

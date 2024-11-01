@@ -4,23 +4,23 @@ const Footer = () => {
   return (
     <footer className="bg-gray-100 py-6 w-full">
       <div className="max-w-[1440px] mx-auto px-4">
-        <div className="flex flex-wrap justify-between items-start md:ml-[120px] pt-12">
+        <div className="flex flex-wrap justify-between items-start md:ml-[60px] pt-16">
           <div className="w-full md:w-1/3 lg:w-1/4 mb-8 md:mb-0">
             <img src="./logo.png" alt="Company Logo" className="mb-4 w-40 h-auto" />
-            <p className="text-gray-600 mb-4 text-sm">
-              Lorem ipsum dolor sit amet consectetur. Quis tortor gravida nibh arcu id purus ullamcorper. Vel vel erat semper augue.
+            <p className="font-inter text-gray-600 mb-4 text-sm ">
+              Lorem ipsum dolor sit amet consectetur. Quis <br />tortor gravida nibh arcu id purus ullamcorper. Vel <br />vel erat semper augue.
             </p>
             <div className="flex space-x-4 mt-2">
-              <img src="/facebook-icon.png" alt="Facebook" className="w-8 h-8" />
-              <img src="/whatsapp-icon.png" alt="Twitter" className="w-8 h-8" />
-              <img src="/youtube-icon.png" alt="Instagram" className="w-8 h-8" />
+              <img src="/facebook-icon.png" alt="Facebook" className="w-8 h-8 mt-2" />
+              <img src="/whatsapp-icon.png" alt="Twitter" className="w-8 h-8 mt-2" />
+              <img src="/youtube-icon.png" alt="Instagram" className="w-8 h-8 mt-2" />
             </div>
           </div>
           
-          <div className="flex flex-col md:flex-row md:w-2/3 lg:w-3/5">
+          <div className="flex flex-col md:flex-row md:w-2/3 lg:w-3/5 md:justify-end">
             <div className="w-full md:w-1/4 mb-8 md:mb-0 pr-4">
-              <h3 className="text-base font-bold mb-2">Features</h3>
-              <ul className="text-gray-600 text-sm space-y-4">
+              <h3 className="font-inter text-base font-bold mb-2">Features</h3>
+              <ul className="font-inter text-gray-600 text-sm space-y-4">
                 <li className="mb-2">Features</li>
                 <li className="mb-2">Pricing</li>
                 <li className="mb-2">Locations</li>
@@ -28,8 +28,8 @@ const Footer = () => {
               </ul>
             </div>
             <div className="w-full md:w-1/4 mb-8 md:mb-0 pr-4">
-              <h3 className="text-base font-bold mb-2">Engage</h3>
-              <ul className="text-gray-600 text-sm space-y-4">
+              <h3 className="font-inter text-base font-bold mb-2">Engage</h3>
+              <ul className="font-inter text-gray-600 text-sm space-y-4">
                 <li className="mb-2">FAQ</li>
                 <li className="mb-2">Tutorials</li>
                 <li className="mb-2">About us</li>
@@ -38,8 +38,8 @@ const Footer = () => {
               </ul>
             </div>
             <div className="w-full md:w-1/4 mb-8 md:mb-0">
-              <h3 className="text-base font-bold mb-2">Earn money</h3>
-              <ul className="text-gray-600 text-sm space-y-4">
+              <h3 className="font-inter text-base font-bold mb-2">Earn money</h3>
+              <ul className="font-inter text-gray-600 text-sm space-y-4">
                 <li className="mb-2">Become partner</li>
                 <li className="mb-2">Affiliate</li>
               </ul>

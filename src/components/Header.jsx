@@ -53,10 +53,10 @@ const Header = () => {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/80 backdrop-blur-md shadow-md' : 'bg-white'
+      isScrolled ? 'bg-white shadow-md' : 'bg-white'
     }`}>
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between py-4 mt-2">
+        <div className="flex items-center justify-between py-4 mt-2 mb-8 lg:mb-2">
           <img src={"./logo.png"} alt="StudyMeister Logo" width={150} height={42} className="z-20 ml-2 lg:ml-24" />
           
           {/* Hamburger button for mobile */}
@@ -71,7 +71,11 @@ const Header = () => {
           </button>
 
           {/* Nav Menu */}
-          <nav className={`fixed inset-0 z-10 bg-white bg-opacity-95 backdrop-blur-lg transform transition-transform duration-300 ease-in-out lg:relative lg:inset-auto lg:transform-none lg:transition-none lg:flex lg:items-center lg:justify-end lg:flex-1 mr-2 lg:mr-16 ${isNavOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+          <nav className={`fixed inset-0 z-10 lg:bg-transparent transform transition-transform duration-300 ease-in-out lg:relative lg:inset-auto lg:transform-none lg:transition-none lg:flex lg:items-center lg:justify-end lg:flex-1 mr-2 lg:mr-16 ${
+            isNavOpen ? 'translate-x-0 bg-white bg-opacity-95' : 'translate-x-full'
+          } ${
+            isScrolled ? 'lg:backdrop-blur-lg' : ''
+          }`}>
             <div className="flex flex-col lg:flex-row items-center justify-center h-full lg:h-auto space-y-8 lg:space-y-0 lg:space-x-6 xl:space-x-8 2xl:space-x-12 text-lg lg:text-base font-rubik">
               {/* Links */}
               <a href="#pricing" className="text-[#2B2B2B] hover:text-gray-900 relative group inline-block pl-4 font-semibold">
@@ -94,7 +98,7 @@ const Header = () => {
                   <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#E16741] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
                 </button>
                 <Link to="signup" className="px-5 py-[3px] font-semibold text-[#E16741] bg-white 
-                      border-2 border-[#E16741] rounded-[6px] hover:bg-[#E16741] hover:text-white 
+                      border-2 border-[#E16741] rounded-[6px] hover:bg-[white] hover:text-[#3D5A80] hover:border-[#3D5A80]
                       transition-colors duration-300">
                   Sign up
                 </Link>
@@ -103,6 +107,7 @@ const Header = () => {
           </nav>
         </div>
       </div>
+      
     </header>
   );
 };

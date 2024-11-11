@@ -40,10 +40,10 @@ const Features = () => {
   ];
 
   return (
-    <section className="rising p-4 sm:p-8 md:p-12 bg-white text-center max-w-7xl mx-auto mb-8 min-[768px]:mb-8">
+    <section className="p-4 sm:p-8 md:p-12 bg-white text-center max-w-7xl mx-auto mb-8 min-[768px]:mb-8">
       <div className="mt-1 sm:mt-16 md:mt-[-3rem] lg:mt-2 flex flex-col md:flex-row justify-between items-center min-[775px]:mb-8 min-[768px]:mt-2">
         {/* Image container */}
-        <div className="animate-on-scroll slide-in-left w-full md:w-[48%] px-4 sm:px-8 mb-8 md:mb-0 md:mt-16 lg:mt-8 order-2 md:order-1 md:flex md:justify-center lg:justify-end min-[640px]:max-[767px]:px-12">
+        <div className="w-full md:w-[48%] px-4 sm:px-8 mb-8 md:mb-0 md:mt-16 lg:mt-8 order-2 md:order-1 md:flex md:justify-center lg:justify-end min-[640px]:max-[767px]:px-12">
           <img 
             src="./featuresimg.png" 
             alt="Features" 
@@ -62,7 +62,7 @@ const Features = () => {
         </div>
 
         {/* Text container */}
-        <div className="animate-on-scroll slide-in-bottom w-full md:w-[50%] space-y-4 sm:space-y-5 text-left 
+        <div className="w-full md:w-[50%] space-y-4 sm:space-y-5 text-left 
                         px-4 sm:px-12 md:px-0 
                         md:pr-8 lg:pr-14 
                         md:mt-8 lg:mt-8 order-1 md:order-2
@@ -100,7 +100,7 @@ const Features = () => {
             {features.map((feature, index) => (
               <div 
                 key={index} 
-                className={`animate-on-scroll slide-in-bottom delay-${index} flex items-center justify-start hover:transform hover:translate-x-2 transition-transform duration-300
+                className={`flex items-center justify-start hover:transform hover:translate-x-2 transition-transform duration-300
                            min-[768px]:py-1
                            min-[1025px]:w-[232px]`}
               >

@@ -6,14 +6,14 @@ const testimonials = [
     subName: 'Warsaw pland',
     rating: 4.5, 
     avatar: './testimonials1.png',
-    testimonial: '"The tools are user-friendly, and I love how they help me organize my thoughts more clearly. I can finally finish my papers faster"."',
+    testimonial: '"The tools are user-friendly, and I love how they help me organize my thoughts more clearly. I can finally finish my papers faster."',
   },
   {
     name: 'Darlene Robertson',
     subName: 'Warsaw pland',
     rating: 4.5,
     avatar: './testimonials2.png',
-    testimonial: '"I was struggling with structuring my articles until I found Study Meister. It makes the entire process very easy and stress-free"',
+    testimonial: '"I was struggling with structuring my articles until I found Study Meister. It makes the entire process very easy and stress-free."',
   },
   {
     name: 'Darrell Steward',
@@ -27,7 +27,7 @@ const testimonials = [
     subName: 'Warsaw pland',
     rating: 4.5,
     avatar: './testimonials4.jpg',
-    testimonial: '"wow...iam very happy to use this vpn, it turned out to be more than my expectations and so far there have been no problems. laslesvpn always the best."',
+    testimonial: '"Wow... I am very happy to use this VPN, it turned out to be more than my expectations and so far there have been no problems. LaslesVPN always the best."',
   },
 ];
 
@@ -75,7 +75,16 @@ const Testimonials = () => {
   const renderTestimonial = (testimonial, index) => (
     <div 
       key={`${testimonial.name}-${index}`}
-      className={`${isMobile ? 'w-full' : 'w-full md:w-1/2 lg:w-1/3'} flex-shrink-0 bg-white p-4 md:p-6 rounded-lg shadow-md transition-all duration-500 ease-in-out hover:shadow-lg hover:scale-105 ${isMobile ? 'snap-center' : 'mr-4'} border border-gray-200 hover:border-[#E16741] ${!isMobile && 'max-h-[250px] overflow-y-auto'}`}
+      className={`testimonial-card ${isMobile ? 'w-[100%] md:w-[369px]' : 'w-full md:w-1/2 lg:w-1/3'} flex-shrink-0 bg-white p-4 md:p-6 rounded-lg shadow-md transition-all duration-500 ease-in-out hover:shadow-lg border border-gray-200 hover:border-[#E16741] ${isMobile ? 'snap-center' : 'mr-4'} ${
+        !isMobile && 'max-h-[250px] overflow-y-auto scrollbar-hide'
+      }`}
+      style={{
+        scrollbarWidth: 'none',
+        msOverflowStyle: 'none',
+        '::-webkit-scrollbar': {
+          display: 'none'
+        }
+      }}
     >
       <div className="flex items-center mb-4">
         <img src={testimonial.avatar} alt={testimonial.name} className="w-10 h-10 md:w-12 md:h-12 rounded-full mr-3" />
@@ -97,9 +106,11 @@ const Testimonials = () => {
   );
 
   return (
-    <section className="rising p-4 md:p-8 text-center max-w-6xl mx-auto mt-8 md:mt-[-6rem]">
-      <h2 className="text-xl md:text-2xl font-bold text-gray-800">Trusted by thousands of <br className="hidden md:block" /> happy customers</h2>
-      <p className="mt-2 md:mt-4 text-sm md:text-base text-gray-500 max-w-lg mx-auto px-4 md:px-0">
+    <section className="rising p-4 md:p-8 text-center max-w-6xl mx-auto mt:8 md:mt-[16px] lg:mt-[-6rem] xl:mt-[-6rem] 2xl:mt-[-6rem] 3xl:mt-[-8rem] min-[834px]:mt-[-2rem] mb-[2rem]">
+      <h2 className="text-xl md:text-2xl font-bold text-gray-800 min-[390px]:w-[240px] w-[244px] mx-auto min-[834px]:w-[300px] min-[834px]:mx-auto mt-8 md:mt-[3rem] 2xl:h-[60px] 2xl:w-[300px]">
+        Trusted by thousands of happy customers
+      </h2>
+      <p className="mt-2 md:mt-4 text-sm md:text-base text-gray-500 w-[368px] min-[390px]:w-[368px] min-[834px]:w-[559px] mx-auto px-4 md:px-0 mb-[2rem]">
         Join a community of users who have transformed their writing process with our reliable tools and features.
       </p>
       <div className="relative pb-16 md:pb-24 overflow-hidden mt-4 md:mt-8">
@@ -117,22 +128,11 @@ const Testimonials = () => {
             : [...testimonials, ...testimonials.slice(0, 2)].map(renderTestimonial)}
         </div>
 
-        {/* Desktop: Arrows and Dots positioning */}
+        {/* Arrows and Dots positioning */}
         {!isMobile && (
-          <div className="absolute bottom-0 left-0 right-0 flex justify-between items-center px-4 md:px-0">
-            <div className="flex space-x-1 md:space-x-2">
-              {testimonials.map((_, index) => (
-                <div
-                  key={index}
-                  className={`h-2 md:h-3 rounded-full transition-all duration-300 ${
-                    index === currentSlide
-                      ? 'bg-[#3D5A80] w-8 md:w-12'
-                      : 'bg-gray-300 w-2 md:w-3'
-                  }`}
-                ></div>
-              ))}
-            </div>
-            <div className="flex space-x-6 md:space-x-12">
+          <div className="absolute bottom-0 left-0 right-0 flex items-center px-4 md:px-0">
+            {/* Below 1024px: Centered dots with split arrows */}
+            <div className="w-full flex items-center justify-between lg:hidden">
               <button 
                 onClick={prevSlide} 
                 className={`p-1.5 md:p-2 rounded-full transition-colors duration-300 ${activeButton === 'prev' ? 'bg-[#3D5A80]' : 'bg-gray-300'}`}
@@ -141,6 +141,18 @@ const Testimonials = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </button>
+              <div className="flex space-x-1 md:space-x-2">
+                {testimonials.map((_, index) => (
+                  <div
+                    key={index}
+                    className={`h-2 md:h-3 rounded-full transition-all duration-300 ${
+                      index === currentSlide
+                        ? 'bg-[#3D5A80] w-8 md:w-12'
+                        : 'bg-gray-300 w-2 md:w-3'
+                    }`}
+                  ></div>
+                ))}
+              </div>
               <button 
                 onClick={nextSlide} 
                 className={`p-1.5 md:p-2 rounded-full transition-colors duration-300 ${activeButton === 'next' ? 'bg-[#3D5A80]' : 'bg-gray-300'}`}
@@ -150,35 +162,60 @@ const Testimonials = () => {
                 </svg>
               </button>
             </div>
+
+            {/* 1024px and above: Dots left, arrows right */}
+            <div className="hidden lg:flex w-full justify-between items-center">
+              <div className="flex space-x-1 md:space-x-2 ml-0">
+                {testimonials.map((_, index) => (
+                  <div
+                    key={index}
+                    className={`h-2 md:h-3 rounded-full transition-all duration-300 ${
+                      index === currentSlide
+                        ? 'bg-[#3D5A80] w-8 md:w-12'
+                        : 'bg-gray-300 w-2 md:w-3'
+                    }`}
+                  ></div>
+                ))}
+              </div>
+              <div className="flex space-x-8 mr-0">
+                <button 
+                  onClick={prevSlide} 
+                  className={`p-1.5 md:p-2 rounded-full transition-colors duration-300 ${activeButton === 'prev' ? 'bg-[#3D5A80]' : 'bg-gray-300'} 2xl:w-[45px] 2xl:h-[45px]`}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-6 md:w-6 transform rotate-180" fill="none" viewBox="0 0 24 24" stroke="white">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+                <button 
+                  onClick={nextSlide} 
+                  className={`p-1.5 md:p-2 rounded-full transition-colors duration-300 ${activeButton === 'next' ? 'bg-[#3D5A80]' : 'bg-gray-300'} 2xl:w-[45px] 2xl:h-[45px]`}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="white">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+            </div>
           </div>
         )}
 
-        {/* Mobile: Arrows below cards and above dots */}
+        {/* Mobile layout */}
         {isMobile && (
-          <>
-            <div className="flex justify-between px-8 mt-4">
-              <button 
-                onClick={prevSlide} 
-                className={`p-1.5 rounded-full transition-colors duration-300 ${activeButton === 'prev' ? 'bg-[#3D5A80]' : 'bg-gray-300'}`}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 transform rotate-180" fill="none" viewBox="0 0 24 24" stroke="white">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-              <button 
-                onClick={nextSlide} 
-                className={`p-1.5 rounded-full transition-colors duration-300 ${activeButton === 'next' ? 'bg-[#3D5A80]' : 'bg-gray-300'}`}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="white">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
-            <div className="flex justify-center mt-2">
+          <div className="relative w-full flex items-center justify-between mt-[30px]">
+            <button 
+              onClick={prevSlide} 
+              className={`p-1.5 rounded-full transition-colors duration-300 ${activeButton === 'prev' ? 'bg-[#3D5A80]' : 'bg-gray-300'}`}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 transform rotate-180" fill="none" viewBox="0 0 24 24" stroke="white">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+            
+            <div className="flex space-x-1">
               {testimonials.map((_, index) => (
                 <div
                   key={index}
-                  className={`h-2 rounded-full transition-all duration-300 mx-1 ${
+                  className={`h-2 rounded-full transition-all duration-300 ${
                     index === currentSlide
                       ? 'bg-[#3D5A80] w-8'
                       : 'bg-gray-300 w-2'
@@ -186,7 +223,16 @@ const Testimonials = () => {
                 ></div>
               ))}
             </div>
-          </>
+
+            <button 
+              onClick={nextSlide} 
+              className={`p-1.5 rounded-full transition-colors duration-300 ${activeButton === 'next' ? 'bg-[#3D5A80]' : 'bg-gray-300'}`}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="white">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
         )}
       </div>
     </section>

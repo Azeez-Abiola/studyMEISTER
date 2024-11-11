@@ -3,6 +3,19 @@ import { useState, useEffect } from 'react';
 const FeatureStats = () => {
   const [counts, setCounts] = useState({ users: 0, servers: 0, articles: 0 });
   const [isVisible, setIsVisible] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    // Handle window resize
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -20,14 +33,31 @@ const FeatureStats = () => {
 
   return (
     <div
-      className={`p-1 sm:p-3 md:p-4 text-center rounded-[3px] w-[95%] transition-all duration-600 ease-out mt-2 mb-8 xs:mt-8 sm:mt-[-13rem] sm:mb-0 md:mt-14 mr-16 
-        min-[775px]:mt-[-8rem] 
-        min-[972px]:mt-[-10rem]
-        min-[1024px]:mt-[-12rem]
-        min-[1072px]:mt-[-13rem]
-        min-[1251px]:mt-14 ${
+      className={`p-1 sm:p-3 md:p-4 text-center rounded-[3px] transition-all duration-600 ease-out mt-2 mb-8 xs:mt-8 sm:mt-[-13rem] sm:mb-0 md:mt-14 mx-auto 
+        max-[767px]:mt-8
+        min-[768px]:mt-[-2rem]
+        min-[775px]:mt-[-15rem]
+        min-[834px]:mt-[-15rem]
+        min-[972px]:mt-[-16rem]
+        min-[1024px]:mt-[-17rem]
+        min-[1072px]:mt-[-18rem]
+        min-[1251px]:mt-[6rem] ${
         isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-16'
       }`}
+      style={{
+        width: windowWidth === 390 ? '370px' :
+               windowWidth === 834 ? '794px' : 
+               windowWidth === 1440 ? '945px' : 
+               windowWidth >= 1920 && windowWidth < 3840 ? '1194.9px' : 
+               windowWidth >= 3840 ? '1535.57px' : 'auto',
+        height: windowWidth === 390 ? '375px' :
+               windowWidth === 834 || windowWidth === 1440 ? '91px' : 
+               windowWidth >= 1920 && windowWidth < 3840 ? '115.06px' : 
+               windowWidth >= 3840 ? '147.87px' : 'auto',
+        marginLeft: windowWidth === 390 ? 'auto' :
+                   windowWidth === 1440 ? 'calc(50% - 472.5px)' : 'auto',
+        marginRight: windowWidth === 390 ? 'auto' : 'inherit'
+      }}
     >
       <div className="max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-1 rounded-[3px] shadow-[2px_2px_4px_rgba(174,174,174,0.5)] py-1 sm:py-2 md:py-3 hover:shadow-[4px_4px_12px_rgba(174,174,174,0.9)] transition-shadow duration-300 bg-white border border-gray-200">
         {/* Users Stat */}

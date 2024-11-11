@@ -55,19 +55,58 @@ body {
 }
 
 .max-w-screen-content {
-  max-width: 1440px;
+  max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
 }
 
 @media (min-width: 1921px) {
-  html {
-    font-size: 18px;
+
+}
+
+
+@media (min-width: 1440px) and (max-width: 1440px) {
+  .testimonial-card {
+    width: 359.33px;
+    height: 202px;
   }
 }
 
-@media (min-width: 2561px) {
-  html {
-    font-size: 20px;
+@media (min-width: 1440px) {
+  .hero-section {
+    margin-top: 20rem; /* Adjust this value as needed */
   }
 }
+
+@media (max-width: 390px) {
+  .dots-container {
+    margin-top: 20px; /* Adjust this value as needed */
+  }
+}
+
+/* Animation base classes */
+.animate-on-scroll {
+  opacity: 0;
+  transition: all 1s ease-out;
+}
+
+.animate-on-scroll.animate {
+  opacity: 1;
+  transform: translateY(0) translateX(0);
+}
+
+/* Slide in from left */
+.slide-in-left {
+  transform: translateX(-100px);
+}
+
+/* Slide in from bottom */
+.slide-in-bottom {
+  transform: translateY(50px);
+}
+
+/* Delay classes for features list */
+.delay-0 { transition-delay: 0.2s; }
+.delay-1 { transition-delay: 0.4s; }
+.delay-2 { transition-delay: 0.6s; }
+.delay-3 { transition-delay: 0.8s; }

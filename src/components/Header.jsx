@@ -57,12 +57,10 @@ const Header = () => {
     }`}>
       <div className="max-w-[1440px] mx-auto px-2 sm:px-4 lg:px-8 xl:px-0">
         <div className="flex items-center justify-between py-2 mt-2 mb-4 lg:mb-2">
-          <img 
+        <img 
             src={"./logo.png"} 
             alt="StudyMeister Logo" 
-            width={120} 
-            height={32} 
-            className="z-20 ml-2 lg:ml-0 xl:ml-[174px]" 
+            className="z-20 ml-2 lg:ml-0 xl:ml-[174px] w-40 h-auto" 
           />
           
           {/* Hamburger button for mobile */}

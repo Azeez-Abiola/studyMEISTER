@@ -110,7 +110,7 @@ const Testimonials = () => {
       <h2 className="text-xl md:text-2xl font-bold text-gray-800 min-[390px]:w-[240px] w-[244px] mx-auto min-[834px]:w-[300px] min-[834px]:mx-auto mt-8 md:mt-[3rem] 2xl:h-[60px] 2xl:w-[300px]">
         Trusted by thousands of happy customers
       </h2>
-      <p className="mt-2 md:mt-4 text-sm md:text-base text-gray-500 w-[368px] min-[390px]:w-[368px] min-[834px]:w-[559px] mx-auto px-4 md:px-0 mb-[2rem]">
+      <p className="mt-2 md:mt-4 text-sm md:text-base text-gray-500 w-full mx-auto px-4 md:px-0 mb-[2rem]">
         Join a community of users who have transformed their writing process with our reliable tools and features.
       </p>
       <div className="relative pb-16 md:pb-24 overflow-hidden mt-4 md:mt-8">

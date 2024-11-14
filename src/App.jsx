@@ -1,22 +1,22 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import FeatureStats from './components/FeatureStats';
-import Features from './components/Features';
-import Testimonials from './components/Testimonials';
-import Subscribe from './components/Subscribe';
-import Footer from './components/Footer';
-import Login from './components/Login';
-import SignUp from './components/SignUp';
-import Dashboard from './components/Dashboard';
-import EmailVerification from './components/EmailVerification';
-import VerificationCode from './components/VerificationCode';
-import Pricing from './components/Pricing';
-import Checkout from './components/Checkout';
-import RelevanceChecker from './components/RelevanceChecker';
-import AdminDashboard from './components/AdminDashboard';
-import Paraphraser from './components/Paraphraser';
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import FeatureStats from "./components/FeatureStats";
+import Features from "./components/Features";
+import Testimonials from "./components/Testimonials";
+import Subscribe from "./components/Subscribe";
+import Footer from "./components/Footer";
+import Login from "./components/Login";
+import SignUp from "./components/SignUp";
+import Dashboard from "./components/Dashboard";
+import EmailVerification from "./components/EmailVerification";
+import VerificationCode from "./components/VerificationCode";
+import Pricing from "./components/Pricing";
+import Checkout from "./components/Checkout";
+import RelevanceChecker from "./components/RelevanceChecker";
+import AdminDashboard from "./components/AdminDashboard";
+import Paraphraser from "./components/Paraphraser";
 
 // CenteredContent ensures max-width scaling across various viewports
 const CenteredContent = ({ children }) => (
@@ -30,7 +30,10 @@ const Home = () => (
   <>
     <div className="flex flex-col items-center w-full">
       <CenteredContent>
-        <Header />
+        <div>
+          <Header />
+        </div>
+
         <main className="w-full">
           <div className="w-full max-w-full mx-auto">
             <Hero />

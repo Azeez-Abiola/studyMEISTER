@@ -75,7 +75,7 @@ const Testimonials = () => {
   const renderTestimonial = (testimonial, index) => (
     <div 
       key={`${testimonial.name}-${index}`}
-      className={`testimonial-card ${isMobile ? 'w-[100%] md:w-[369px]' : 'w-full md:w-1/2 lg:w-1/3'} flex-shrink-0 bg-white p-4 md:p-6 rounded-lg shadow-md transition-all duration-500 ease-in-out hover:shadow-lg border border-gray-200 hover:border-[#E16741] ${isMobile ? 'snap-center' : 'mr-4'} ${
+      className={`testimonial-card w-[353px] flex-shrink-0 bg-white p-4 md:p-6 rounded-lg shadow-md transition-all duration-500 ease-in-out hover:shadow-lg border border-gray-200 hover:border-[#E16741] ${isMobile ? 'snap-center' : 'mr-[5px]'} ${
         !isMobile && 'max-h-[250px] overflow-y-auto scrollbar-hide'
       }`}
       style={{
@@ -118,6 +118,7 @@ const Testimonials = () => {
           ref={scrollContainerRef}
           className={`flex transition-transform duration-500 ease-in-out ${isMobile ? 'overflow-x-auto snap-x snap-mandatory scrollbar-hide' : ''}`}
           style={{ 
+            width: isMobile ? '100%' : '1138px', // Updated width
             transform: isMobile ? 'none' : `translateX(-${currentSlide * (100 / 3)}%)`,
             scrollbarWidth: 'none',
             msOverflowStyle: 'none',

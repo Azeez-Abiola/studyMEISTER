@@ -20,7 +20,7 @@ const Subscribe = () => {
             <h2 className="font-inter text-base xs:text-lg sm:text-xl md:text-2xl font-bold text-gray-800">
               Subscribe now for special student discount!
             </h2>
-            <p className="font-inter mt-2 sm:mt-3 md:mt-4 text-xs xs:text-sm sm:text-base text-gray-500 max-[389px]:w-full min-[1440px]:whitespace-nowrap">
+            <p className="font-inter mt-2 sm:mt-3 md:mt-4 text-xs xs:text-sm sm:text-base text-gray-500 max-[389px]:w-full min-[1284px]:whitespace-nowrap">
               Unlock exclusive savings and take your research to the next level with our student-friendly pricing.
             </p>
           </div>

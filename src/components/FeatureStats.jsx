@@ -3,17 +3,29 @@ import { useState, useEffect } from 'react';
 const FeatureStats = () => {
   const [counts, setCounts] = useState({ users: 0, servers: 0, articles: 0 });
   const [isVisible, setIsVisible] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    // Handle window resize
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCounts(prevCounts => ({
-        users: Math.min(prevCounts.users + 500, 40000),
-        servers: Math.min(prevCounts.servers + 1, 50),
-        articles: Math.min(prevCounts.articles + 10000, 1000000)
+        users: Math.min(prevCounts.users + 2000, 140000),
+        servers: Math.min(prevCounts.servers + 2, 50),
+        articles: Math.min(prevCounts.articles + 20000, 1000000)
       }));
-    }, 100);
+    }, 50);
 
-    // Set isVisible to true after a short delay to trigger the animation
     setTimeout(() => setIsVisible(true), 100);
 
     return () => clearInterval(interval);
@@ -21,32 +33,63 @@ const FeatureStats = () => {
 
   return (
     <div
-      className={`p-4 sm:p-8 md:p-12 bg-white text-center rounded-[3px] w-full transition-all duration-600 ease-out ${
+      className={`p-1 sm:p-3 md:p-4 text-center rounded-[3px] transition-all duration-600 ease-out mt-2 mb-8 xs:mt-8 sm:mt-[-13rem] sm:mb-0 md:mt-14 mx-auto 
+        max-[767px]:mt-8
+        min-[768px]:mt-[-2rem]
+        min-[775px]:mt-[-15rem]
+        min-[834px]:mt-[-15rem]
+        min-[972px]:mt-[-16rem]
+        min-[1024px]:mt-[-17rem]
+        min-[1072px]:mt-[-18rem]
+        min-[1251px]:mt-[6rem] ${
         isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-16'
       }`}
+      style={{
+        width: windowWidth === 390 ? '370px' :
+               windowWidth === 834 ? '794px' : 
+               windowWidth === 1440 ? '945px' : 
+               windowWidth >= 1920 && windowWidth < 3840 ? '1194.9px' : 
+               windowWidth >= 3840 ? '1535.57px' : 'auto',
+        height: windowWidth === 390 ? '375px' :
+               windowWidth === 834 || windowWidth === 1440 ? '91px' : 
+               windowWidth >= 1920 && windowWidth < 3840 ? '115.06px' : 
+               windowWidth >= 3840 ? '147.87px' : 'auto',
+        marginLeft: windowWidth === 390 ? 'auto' :
+                   windowWidth === 1440 ? 'calc(50% - 472.5px)' : 'auto',
+        marginRight: windowWidth === 390 ? 'auto' : 'inherit'
+      }}
     >
-      <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 rounded-[3px] shadow-[4px_4px_8px_rgba(174,174,174,0.5)] py-6 sm:py-8 md:py-10 hover:shadow-[8px_8px_16px_rgba(174,174,174,0.8)] transition-shadow duration-300">
-        <div className="flex flex-col sm:flex-row items-center justify-center relative pb-4 sm:pb-0 sm:pr-4 md:pr-8">
-          <img src="./featurestats1.png" alt="Users" className="w-12 h-12 mb-2 sm:mb-0 sm:mr-4" />
-          <div>
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-800">{counts.users.toLocaleString()}+</h2>
-            <p className="text-gray-500">Users</p>
+      <div className="max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-1 rounded-[3px] shadow-[2px_2px_4px_rgba(174,174,174,0.5)] py-1 sm:py-2 md:py-3 hover:shadow-[4px_4px_12px_rgba(174,174,174,0.9)] transition-shadow duration-300 bg-white border border-gray-200">
+        {/* Users Stat */}
+        <div className="flex flex-col sm:flex-row items-center justify-center relative pb-1 sm:pb-0 px-2">
+          <img src="./featurestats1.png" alt="Users" className="w-8 h-8 mb-1 sm:mb-0 sm:mr-2" />
+          <div className="font-inter text-center sm:text-left">
+            <h2 className="text-base sm:text-sm text-gray-800"><span className="font-bold">{counts.users.toLocaleString()}</span>+</h2>
+            <p className="text-xs text-gray-500">Users</p>
           </div>
-          <div className="hidden sm:block absolute right-0 top-1/2 transform -translate-y-1/2 w-px h-3/4 bg-[#3D5A80]"></div>
+          <div className="hidden sm:block absolute right-0 top-1/2 transform -translate-y-1/2 w-[1px] h-3/4 bg-gray-300"></div>
         </div>
-        <div className="flex flex-col sm:flex-row items-center justify-center relative pb-4 sm:pb-0 sm:pr-4 md:pr-8">
-          <img src="./featurestats2.png" alt="Servers" className="w-12 h-12 mb-2 sm:mb-0 sm:mr-4" />
-          <div>
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-800">{counts.servers}+</h2>
-            <p className="text-gray-500">Servers</p>
+
+        {/* Servers Stat */}
+        <div className="flex flex-col sm:flex-row items-center justify-center relative pb-1 sm:pb-0 px-2">
+          <img src="./featurestats2.png" alt="Servers" className="w-8 h-8 mb-1 sm:mb-0 sm:mr-2" />
+          <div className="font-inter text-center sm:text-left">
+            <h2 className="text-base sm:text-sm text-gray-800"><span className="font-bold">{counts.servers}</span>+</h2>
+            <p className="text-xs text-gray-500">Journals</p>
           </div>
-          <div className="hidden md:block absolute right-0 top-1/2 transform -translate-y-1/2 w-px h-3/4 bg-[#3D5A80]"></div>
+          <div className="hidden sm:block absolute right-0 top-1/2 transform -translate-y-1/2 w-[1px] h-3/4 bg-gray-300"></div>
         </div>
-        <div className="flex flex-col sm:flex-row items-center justify-center">
-          <img src="./featurestats3.png" alt="Articles" className="w-12 h-12 mb-2 sm:mb-0 sm:mr-4" />
-          <div>
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-800">{(counts.articles / 1000000).toFixed(1)}M+</h2>
-            <p className="text-gray-500">Published Articles</p>
+
+        {/* Articles Stat */}
+        <div className="flex flex-col sm:flex-row items-center justify-center pb-1 sm:pb-0 px-2">
+          <img src="./featurestats3.png" alt="Articles" className="w-8 h-8 mb-1 sm:mb-0 sm:mr-2" />
+          <div className="font-inter text-center sm:text-left">
+            <h2 className="text-base sm:text-sm text-gray-800">
+              <span className="font-bold">
+                {counts.articles >= 1000000 ? '1M' : `${Math.floor(counts.articles / 1000)}K`}
+              </span>+
+            </h2>
+            <p className="text-xs text-gray-500">Published Articles</p>
           </div>
         </div>
       </div>
